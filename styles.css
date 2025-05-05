@@ -103,6 +103,10 @@ nav ul li a:hover {
     color: var(--primary-blue);
 }
 
+.section p {
+    font-size: 12px;
+}
+
 .attorneys {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -200,7 +204,7 @@ footer {
 
 .contact-info p {
     margin-bottom: 0.5rem;
-    font-size: 20px;
+    font-size: 12px; /* Changed from 20px to 12px */
 }
 
 .copyright {
@@ -227,6 +231,7 @@ footer {
     }
 }
 
+/* About section specific styling - keep this larger */
 #about p {
     font-size: 20px; 
     line-height: 1.7; 
@@ -235,5 +240,3 @@ footer {
 #about .section-title {
     font-size: 2.2rem; 
 }
-
-
