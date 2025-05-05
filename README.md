@@ -1,2 +1,2 @@
 # chetluru-srinivas-advocate.github.io
-github.io repo
+This is a github.io repo to host Chetluru Srinivas and Associates website
