@@ -1,0 +1,196 @@
+:root {
+    --primary-blue: #1a4b7c;
+    --secondary-blue: #2c6aa0;
+    --light-blue: #e8f1f9;
+    --dark-text: #333333;
+    --light-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--light-blue);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--light-blue);
+}
+
+.hero {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-blue);
+}
+
+.attorneys {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.attorney-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.attorney-card:hover {
+    transform: translateY(-5px);
+}
+
+.attorney-img {
+    height: 250px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attorney-info {
+    padding: 1.5rem;
+}
+
+.attorney-name {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.attorney-title {
+    color: var(--secondary-blue);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.practice-areas {
+    background-color: white;
+    padding: 3rem 0;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.area-card {
+    background-color: var(--light-blue);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.area-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 2rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+    }
+    
+    nav ul li {
+        margin: 0 0.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
