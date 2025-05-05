@@ -98,11 +98,16 @@ nav ul li a:hover {
 }
 
 .attorney-card {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid #eee;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+    transition: transform 0.3s ease;
 }
 
 .attorney-card:hover {
@@ -110,15 +115,20 @@ nav ul li a:hover {
 }
 
 .attorney-img {
-    height: 250px;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.attorney-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .attorney-info {
     padding: 1.5rem;
+    background-color: white;
 }
 
 .attorney-name {
