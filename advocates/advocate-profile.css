@@ -1,0 +1,100 @@
+/* Advocate Profile Styles */
+.advocate-profile {
+    padding: 60px 0;
+}
+
+.profile-header {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.profile-image {
+    flex: 0 0 300px;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-intro {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-intro h1 {
+    margin-top: 0;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.profile-intro .title {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.profile-intro .contact-info {
+    margin: 5px 0;
+    color: #555;
+}
+
+.profile-content {
+    margin-top: 30px;
+}
+
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-section h2 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.profile-section ul {
+    padding-left: 20px;
+}
+
+.profile-section li {
+    margin-bottom: 8px;
+}
+
+/* Additional styles for the attorney cards in index.html */
+.attorney-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.attorney-link:hover {
+    transform: translateY(-5px);
+}
+
+.attorney-card {
+    transition: box-shadow 0.3s ease;
+}
+
+.attorney-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-image {
+        max-width: 250px;
+    }
+}
