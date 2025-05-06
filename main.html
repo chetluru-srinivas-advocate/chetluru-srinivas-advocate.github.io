@@ -195,6 +195,48 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+            const totalSlides = slides.length;
+            
+            // Hide all slides except the first one
+            for(let i = 1; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            
+            // Function to show a specific slide
+            function showSlide(n) {
+                // Hide all slides
+                for(let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                    dots[i].classList.remove('active');
+                }
+                
+                // Show the selected slide
+                slides[n].style.display = 'block';
+                dots[n].classList.add('active');
+                currentSlide = n;
+            }
+            
+            // Auto-advance slides every 5 seconds
+            setInterval(function() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // Add click event to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                });
+            });
+        });
+        </script>
+
 </body>
 </html>
 
