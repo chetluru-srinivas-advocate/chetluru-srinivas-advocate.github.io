@@ -1,6 +1,7 @@
 /* Advocate Profile Styles */
 .advocate-profile {
     padding: 60px 0;
+    font-family: 'Arial', sans-serif;
 }
 
 .profile-header {
@@ -29,17 +30,21 @@
     margin-top: 0;
     color: #333;
     font-size: 2.5rem;
+    font-family: 'Arial', sans-serif;
 }
 
 .profile-intro .title {
     font-size: 1.2rem;
     color: #666;
     margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
 }
 
 .profile-intro .contact-info {
     margin: 5px 0;
     color: #555;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
 }
 
 .profile-content {
@@ -55,6 +60,13 @@
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
     margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+.profile-section p {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
 }
 
 .profile-section ul {
@@ -63,6 +75,8 @@
 
 .profile-section li {
     margin-bottom: 8px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Additional styles for the attorney cards in index.html */

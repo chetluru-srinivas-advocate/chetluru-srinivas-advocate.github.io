@@ -4,7 +4,7 @@
     --light-blue: #e8f1f9;
     --dark-text: #333333;
     --light-text: #ffffff;
-    --base-font-size: 12px;
+    --base-font-size: 16px;
 }
 
 * {
@@ -22,12 +22,12 @@ body {
     background-color: var(--light-blue);
     color: var(--dark-text);
     line-height: 1.6;
-    font-size: 12px;
+    font-size: 16px;
     font-family: 'Arial', sans-serif;
 }
 
 p, li, a, span, div {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 header {
@@ -68,7 +68,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 nav ul li a:hover {
@@ -104,7 +104,7 @@ nav ul li a:hover {
 }
 
 .section p {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .attorneys {
@@ -148,7 +148,7 @@ nav ul li a:hover {
 }
 
 .attorney-info p {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .attorney-name {
@@ -161,7 +161,7 @@ nav ul li a:hover {
     color: var(--secondary-blue);
     font-weight: 500;
     margin-bottom: 1rem;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .practice-areas {
@@ -183,7 +183,7 @@ nav ul li a:hover {
 }
 
 .area-card p {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .area-card h3 {
@@ -204,13 +204,13 @@ footer {
 
 .contact-info p {
     margin-bottom: 0.5rem;
-    font-size: 12px; /* Changed from 20px to 12px */
+    font-size: 16px;
 }
 
 .copyright {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 1.5rem;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
