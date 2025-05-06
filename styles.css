@@ -202,9 +202,14 @@ footer {
     margin-bottom: 2rem;
 }
 
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
 .contact-info p {
     margin-bottom: 0.5rem;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .copyright {
