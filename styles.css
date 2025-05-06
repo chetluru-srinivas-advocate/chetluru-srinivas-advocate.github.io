@@ -165,7 +165,7 @@ nav ul li a:hover {
 }
 
 .practice-areas {
-    background-color: white;
+    background-color: #f9f9f9;
     padding: 3rem 0;
 }
 
@@ -176,10 +176,11 @@ nav ul li a:hover {
 }
 
 .area-card {
-    background-color: var(--light-blue);
+    background-color: #ffffff;
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .area-card p {
