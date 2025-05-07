@@ -1,21 +1,116 @@
-<!DOCTYPE html>
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 3px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #fff;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .profile-image img {
+        max-width: 200px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chetluru Srinivas - Chetluru Srinivas & Associates</title>
+    <title>Chetluru Srinivas - Top Corporate Advocate in Hyderabad | Chetluru Srinivas & Associates</title>
+    <meta name="description" content="Chetluru Srinivas is a senior council at Telangana High Court with over 30 years of experience in corporate law, civil litigation, and arbitration.">
+    <meta name="keywords" content="Chetluru Srinivas, advocate, lawyer, Hyderabad, Telangana High Court, corporate law, litigation, arbitration, legal services">
+    <link rel="canonical" href="https://chetluru-srinivas-advocate.github.io/advocates/chetluru-srinivas.html">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="advocate-profile.css">
+    <link rel="stylesheet" href="../responsive.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Advocate",
+  "name": "Chetluru Srinivas",
+  "image": "https://chetluru-srinivas-advocate.github.io/images/chetluru_srinivas.jpg",
+  "description": "Corporate law and litigation expert with over 30 years of experience representing Fortune 500 companies.",
+  "telephone": "9848022338",
+  "email": "chetluru2025@gmail.com",
+  "jobTitle": "Founding Partner & President",
+  "worksFor": {
+    "@type": "LegalService",
+    "name": "Chetluru Srinivas & Associates",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "#6-3-248/K, Flat No:G2, Banjara Hills",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500034",
+      "addressCountry": "IN"
+    }
+  },
+  "knowsAbout": ["Civil Law", "Corporate Law", "Litigation", "Arbitration"],
+  "alumniOf": "Osmania University"
+}
+</script>
 </head>
 <body>
     <header>
     <div class="container">
     <nav>
     <div class="logo">Chetluru Srinivas & Associates</div>
-    <ul>
+    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul id="nav-menu">
     <li><a href="../index.html#home">Home</a></li>
     <li><a href="../index.html#about">About</a></li>
-    <li><a href="../index.html#attorneys">Attorneys</a></li>
+    <li><a href="../index.html#advocates">Advocates</a></li>
     <li><a href="../index.html#practice-areas">Practice Areas</a></li>
     <li><a href="../index.html#contact">Contact</a></li>
     </ul>
@@ -27,21 +122,21 @@
         <div class="container">
             <div class="profile-header">
                 <div class="profile-image">
-                    <img src="../images/chetluru_srinivas.jpg" alt="Chetluru Srinivas">
+                    <img src="../images/chetluru_srinivas.jpg" alt="Chetluru Srinivas - Corporate Law Advocate in Hyderabad, Telangana High Court Senior Council" loading="lazy" width="300" height="300">
                 </div>
                 <div class="profile-intro">
-                    <h1>Chetluru Srinivas</h1>
-                    <p class="title">Founding Partner & President</p>
-                    <p class="contact-info">Email: chetluru@example.com</p>
-                    <p class="contact-info">Phone: 9848022338</p>
+                    <h1>Chetluru Srinivas - Corporate Law Expert in Hyderabad</h1>
+                    <p class="title">Founding Partner & President | Senior Council at Telangana High Court</p>
+                    <p class="contact-info">Email: <a href="mailto:chetluru2025@gmail.com">chetluru2025@gmail.com</a></p>
+                    <p class="contact-info">Phone: <a href="tel:+919848022338">9848022338</a></p>
                 </div>
             </div>
             
             <div class="profile-content">
                 <section class="profile-section">
-                    <h2>Biography</h2>
-                    <p>Chetluru Srinivas brings over 30 years of legal experience in corporate law and litigation. He has successfully represented Fortune 500 companies and high-profile clients in complex legal matters.</p>
-                    <p>As the founding partner of Chetluru Srinivas & Associates, he has established a reputation for excellence in the legal community. His dedication to client service and legal expertise has earned him recognition as a senior council in the Telangana High Court.</p>
+                    <h2>Biography & Legal Expertise</h2>
+                    <p>Chetluru Srinivas is a distinguished legal professional bringing over 30 years of experience in corporate law and litigation in Hyderabad and across Telangana. He has successfully represented Fortune 500 companies and high-profile clients in complex legal matters including corporate disputes, civil litigation, and arbitration proceedings.</p>
+                    <p>As the founding partner of Chetluru Srinivas & Associates, he has established a reputation for excellence in the legal community of Hyderabad. His dedication to client service and legal expertise has earned him recognition as a senior council in the Telangana High Court, where he has argued numerous landmark cases.</p>
                 </section>
                 
                 <section class="profile-section">
@@ -88,5 +183,11 @@
     </div>
     </div>
     </footer>
+    <script>
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
