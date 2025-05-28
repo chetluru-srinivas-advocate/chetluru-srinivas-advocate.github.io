@@ -107,13 +107,14 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
-.advocatess {
+.Advocates {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 1rem;
 }
 
-.advocates-card {
+.Advocates-card {
     display: flex;
     flex-direction: column;
     max-width: 300px;
@@ -126,41 +127,43 @@ nav ul li a:hover {
     transition: transform 0.3s ease;
 }
 
-.advocates-card:hover {
+.Advocates-card:hover {
     transform: translateY(-5px);
 }
 
-.advocates-img {
+.Advocates-img {
     width: 100%;
+    height: 250px;
     overflow: hidden;
 }
 
-.advocates-img img {
+.Advocates-img img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
 }
 
-.advocates-info {
+.Advocates-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Advocates-info {
     padding: 1.5rem;
     background-color: white;
 }
 
-.advocates-info p {
-    font-size: 16px;
-}
-
-.advocates-link {
+.Advocates-info h3,
+.Advocates-info p {
     text-decoration: none;
     color: inherit;
-    display: block;
 }
 
-.advocates-info h3,
-.advocates-info p {
-    text-decoration: none;
-    color: inherit;
+@media (max-width: 768px) {
+    .Advocates {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
 }
 
 .advocates-name {
