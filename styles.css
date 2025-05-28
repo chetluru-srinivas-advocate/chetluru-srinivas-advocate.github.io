@@ -107,13 +107,13 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
-.attorneys {
+.advocatess {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.attorney-card {
+.advocates-card {
     display: flex;
     flex-direction: column;
     max-width: 300px;
@@ -126,38 +126,50 @@ nav ul li a:hover {
     transition: transform 0.3s ease;
 }
 
-.attorney-card:hover {
+.advocates-card:hover {
     transform: translateY(-5px);
 }
 
-.attorney-img {
+.advocates-img {
     width: 100%;
     overflow: hidden;
 }
 
-.attorney-img img {
+.advocates-img img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 }
 
-.attorney-info {
+.advocates-info {
     padding: 1.5rem;
     background-color: white;
 }
 
-.attorney-info p {
+.advocates-info p {
     font-size: 16px;
 }
 
-.attorney-name {
+.advocates-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.advocates-info h3,
+.advocates-info p {
+    text-decoration: none;
+    color: inherit;
+}
+
+.advocates-name {
     font-size: 1.3rem;
     color: var(--primary-blue);
     margin-bottom: 0.5rem;
 }
 
-.attorney-title {
+.advocates-title {
     color: var(--secondary-blue);
     font-weight: 500;
     margin-bottom: 1rem;
@@ -167,6 +179,13 @@ nav ul li a:hover {
 .practice-areas {
     background-color: #f9f9f9;
     padding: 3rem 0;
+}
+
+
+.practice-area-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .areas-grid {
