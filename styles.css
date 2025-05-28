@@ -168,6 +168,10 @@ nav ul li a:hover {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
     }
+
+    #about p {
+        text-align: left;
+    }
 }
 
 .advocates-name {
@@ -265,8 +269,10 @@ footer {
 
 /* About section specific styling - keep this larger */
 #about p {
-    font-size: 20px; 
-    line-height: 1.7; 
+    font-size: 20px;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 1rem;
 }
 
 #about .section-title {
