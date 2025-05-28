@@ -169,7 +169,8 @@ nav ul li a:hover {
         gap: 1rem;
     }
 
-    #about p {
+    #about p,
+    .profile-section p {
         text-align: left;
     }
 }
@@ -272,6 +273,12 @@ footer {
     font-size: 20px;
     line-height: 1.7;
     text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.profile-section p {
+    text-align: justify;
+    line-height: 1.6;
     margin-bottom: 1rem;
 }
 
