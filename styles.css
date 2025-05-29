@@ -269,7 +269,23 @@ footer {
     padding: 40px 20px; /* Adjust padding as needed, considering the rounded ends */
     text-align: center;
     overflow: hidden; /* Ensures content respects the border radius */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   }
+
+  .profile-card:hover {
+       transform: translateY(-10px);
+       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+       background-color: #c0d8eb;
+   }
+
+   .profile-card:hover .profile-card-image img {
+       border-color: #fff;
+       box-shadow: 0 0 15px rgba(26, 75, 124, 0.3);
+   }
+
+   .profile-card:hover .profile-card-name {
+       color: var(--primary-blue);
+   }
   
   .profile-card-image img {
     width: 230px; /* Updated image size */
