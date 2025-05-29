@@ -334,6 +334,44 @@ footer {
     }
 }
 
+
+/* Add this after the email-link hover style */
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0077b5; /* LinkedIn blue color */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+    transition: background-color 0.3s;
+}
+
+.linkedin-btn:hover {
+    background-color: #005e93; /* Darker shade for hover */
+    text-decoration: none;
+}
+
+.linkedin-btn:before {
+    content: "in";
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16px;
+    margin-right: 6px;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 0 4px;
+}
+
+
+.email-link:hover {
+    text-decoration: underline; /* Adds underline on hover */
+    color: var(--primary-blue); /* Changes color on hover */
+}
+
 /* About section specific styling - keep this larger */
 #about p {
     font-size: 20px;
