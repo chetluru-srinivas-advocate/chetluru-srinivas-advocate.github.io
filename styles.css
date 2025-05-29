@@ -250,6 +250,56 @@ footer {
     font-size: 16px;
 }
 
+
+.profile-card {
+    width: 290px; /* Width of the rectangle part */
+    height: 490px; /* Height of the card */
+    background-color: #d4e6f3;
+    /*
+      To get semi-circles on the ends of a rectangle:
+      The border-radius for the top-left, top-right, bottom-left, and bottom-right
+      corners should be half of the width of the card.
+      In this case, width is 220px, so radius is 110px.
+    */
+    border-radius: 130px; /* This creates the semi-circular ends */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px; /* Adjust padding as needed, considering the rounded ends */
+    text-align: center;
+    overflow: hidden; /* Ensures content respects the border radius */
+  }
+  
+  .profile-card-image img {
+    width: 230px; /* Updated image size */
+    height: 230px; /* Updated image size */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover;
+    margin-bottom: 1px;
+    border: 4px solid #eee;
+  }
+  
+  .profile-card-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .profile-card-title {
+    font-size: .95em;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .profile-card-bio {
+    font-size: 0.75em;
+    color: #555;
+    line-height: 1.5;
+  }
+
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
