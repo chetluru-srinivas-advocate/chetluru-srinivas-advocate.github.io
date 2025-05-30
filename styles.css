@@ -207,20 +207,32 @@ nav ul li a:hover {
 }
 
 .area-card {
-    background-color: #ffffff;
+    background-color: #ffff;
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .area-card p {
     font-size: 16px;
 }
 
+.area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(26, 75, 124, 0.2);
+    background-color: #e8f1f9;
+}
+
+.area-card:hover h3 {
+    color: var(--secondary-blue);
+}
+
 .area-card h3 {
     color: var(--primary-blue);
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 footer {
