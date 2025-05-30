@@ -198,6 +198,15 @@ nav ul li a:hover {
     text-decoration: none;
     color: inherit;
     display: block;
+    height: 100%;
+}
+
+/* Make section titles consistent */
+#about .section-title,
+#Advocates .section-title,
+#practice-areas .section-title,
+#testimonials .section-title {
+    font-size: 2.2rem;
 }
 
 .areas-grid {
