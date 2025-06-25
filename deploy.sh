@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # GitHub Pages Deployment Script for Attorney Website
@@ -12,7 +11,7 @@ rm -rf out .next/.cache
 
 # Build static export
 echo "🔨 Building static export..."
-NEXT_OUTPUT_MODE=export NEXT_DIST_DIR=out NODE_ENV=production yarn build
+NEXT_OUTPUT_MODE=export NEXT_DIST_DIR=out NODE_ENV=production npm run build
 
 # Check if build was successful
 if [ $? -eq 0 ]; then
