@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # GitHub Pages Deployment Script for Attorney Website
@@ -10,9 +9,13 @@ echo "🚀 Building Attorney Website for GitHub Pages..."
 echo "🧹 Cleaning previous builds..."
 rm -rf out .next/.cache
 
+# Install dependencies if needed
+echo "📦 Installing dependencies..."
+npm install --legacy-peer-deps --no-audit --no-fund
+
 # Build static export
 echo "🔨 Building static export..."
-NEXT_OUTPUT_MODE=export NEXT_DIST_DIR=out NODE_ENV=production yarn build
+NEXT_OUTPUT_MODE=export NEXT_DIST_DIR=out NODE_ENV=production npm run build
 
 # Check if build was successful
 if [ $? -eq 0 ]; then
