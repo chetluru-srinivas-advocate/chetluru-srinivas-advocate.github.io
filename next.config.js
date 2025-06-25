@@ -4,8 +4,6 @@ const path = require('path');
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   output: process.env.NEXT_OUTPUT_MODE,
-  // Configuration for GitHub Pages user site (username.github.io)
-  trailingSlash: true,
   experimental: {
     outputFileTracingRoot: path.join(__dirname, '../'),
   },
