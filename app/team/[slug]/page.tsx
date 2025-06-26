@@ -131,13 +131,17 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
             
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-64 h-64 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
-                <Image
-                  src={getAdvocateImage(advocate?.name || '')}
-                  alt={`${advocate?.name || 'Advocate'} - ${advocate?.title || 'Legal Professional'}`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+                {(() => {
+                  const imagePath = getAdvocateImage(advocate?.name || '');
+                  console.log('Loading image for:', advocate?.name, 'Path:', imagePath);
+                  return (
+                    <img
+                      src={imagePath}
+                      alt={`${advocate?.name || 'Advocate'} - ${advocate?.title || 'Legal Professional'}`}
+                      className="w-full h-full object-cover"
+                    />
+                  );
+                })()}
               </div>
             </div>
           </div>
