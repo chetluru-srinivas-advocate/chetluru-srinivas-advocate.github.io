@@ -1,4 +1,3 @@
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ChevronRight, Scale, Mail, Phone } from 'lucide-react';
@@ -134,27 +133,6 @@ export default async function PracticeAreaPage({ params }: PracticeAreaPageProps
                   </div>
                 )}
 
-                <div className="bg-gray-50 rounded-xl p-8">
-                  <h3 className="text-xl font-bold mb-4">Why Choose Our {practiceArea.name} Services?</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Experienced legal professionals with proven track record</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Personalized approach to each case with strategic planning</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Transparent communication and regular case updates</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Cost-effective solutions with emphasis on settlements</span>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
 
@@ -162,17 +140,17 @@ export default async function PracticeAreaPage({ params }: PracticeAreaPageProps
             <div className="space-y-8">
               {/* Contact CTA */}
               <div className="bg-blue-900 text-white rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4">Need Legal Assistance?</h3>
+                <h3 className="text-xl font-bold mb-4 text-white">Need Legal Assistance?</h3>
                 <p className="text-blue-100 mb-6">
                   Contact us today for a consultation regarding your {practiceArea.name.toLowerCase()} matter.
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="tel:+919848022338"
+                    href="tel:+919440222300"
                     className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors"
                   >
                     <Phone className="w-5 h-5" />
-                    <span>+91 9848022338</span>
+                    <span>+91 9440222300</span>
                   </a>
                   <a
                     href="mailto:chetluru2025@gmail.com"
@@ -211,27 +189,6 @@ export default async function PracticeAreaPage({ params }: PracticeAreaPageProps
                 </div>
               )}
 
-              {/* Relevant Advocates */}
-              {relevantAdvocates.length > 0 && (
-                <div className="bg-white border rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4">Our {practiceArea.name} Experts</h3>
-                  <div className="space-y-4">
-                    {relevantAdvocates.map((advocate, index) => (
-                      <Link
-                        key={index}
-                        href={`/team/${advocate.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`}
-                        className="block p-4 rounded-lg border hover:bg-blue-50 hover:border-blue-200 transition-colors"
-                      >
-                        <h4 className="font-semibold text-gray-900">{advocate.name}</h4>
-                        <p className="text-blue-600 text-sm">{advocate.title}</p>
-                        {advocate.experienceYears && (
-                          <p className="text-gray-600 text-sm">{advocate.experienceYears} Experience</p>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
