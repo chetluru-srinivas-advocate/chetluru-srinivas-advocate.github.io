@@ -4,14 +4,27 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Award, Scale, GraduationCap, Phone } from 'lucide-react';
 
-export default function AdvocateProfileClient({ advocate }) {
+interface Advocate {
+  name: string;
+  title: string;
+  isFounder: boolean;
+  experienceYears?: string | null;
+  industryExperienceYears?: string | null;
+  education: string[];
+  specializations: string[];
+  email?: string | null;
+  registration?: string | null;
+  bio?: string | null;
+}
+
+export default function AdvocateProfileClient({ advocate }: { advocate: Advocate }) {
   const [isEciModalOpen, setEciModalOpen] = useState(false);
 
   const getExperienceYears = () => {
     return advocate.experienceYears || advocate.industryExperienceYears || 'Experienced Professional';
   };
 
-  const getAdvocateImage = (advocateName) => {
+  const getAdvocateImage = (advocateName: string) => {
     const name = advocateName.toLowerCase();
     if (name.includes('chetluru') || name.includes('srinivas')) {
       return '/images/chetluru_srinivas_optimized.jpg';
