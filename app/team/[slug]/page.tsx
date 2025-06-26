@@ -1,4 +1,3 @@
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -71,6 +70,33 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
     return advocate.experienceYears || advocate.industryExperienceYears || 'Experienced Professional';
   };
 
+  const getAdvocateImage = (advocateName: string) => {
+    const name = advocateName.toLowerCase();
+    
+    // Map advocate names to their image files
+    if (name.includes('chetluru') || name.includes('srinivas')) {
+      return '/images/chetluru_srinivas_optimized.jpg';
+    }
+    if (name.includes('vijay')) {
+      return '/images/Vijay_1.jpg';
+    }
+    if (name.includes('kiran')) {
+      return '/images/Kiran_3.jpg';
+    }
+    if (name.includes('vimalanand') || name.includes('vimal')) {
+      return '/images/vimalanand_optimized.jpg';
+    }
+    if (name.includes('yajur')) {
+      return '/images/vakil2_optimized.jpg';
+    }
+    if (name.includes('kushal')) {
+      return '/images/vakil2_optimized.jpg';
+    }
+    
+    // Default fallback image
+    return '/images/chetluru_srinivas_optimized.jpg';
+  };
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -106,8 +132,8 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-64 h-64 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
                 <Image
-                  src="https://i.pinimg.com/originals/be/cd/c4/becdc41f3e4695e4c686cd263287c1b6.jpg"
-                  alt={`${advocate.name} - ${advocate.title}`}
+                  src={getAdvocateImage(advocate?.name || '')}
+                  alt={`${advocate?.name || 'Advocate'} - ${advocate?.title || 'Legal Professional'}`}
                   fill
                   className="object-cover"
                   priority
