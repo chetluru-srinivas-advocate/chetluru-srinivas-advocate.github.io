@@ -1,8 +1,11 @@
 
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
     provider = "prisma-client-js"
     binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
-    output = "/home/ubuntu/attorney_website/app/node_modules/.prisma/client"
+    output = "/home/ubuntu/law_firm_website/app/node_modules/.prisma/client"
 }
 
 datasource db {
@@ -16,10 +19,10 @@ model ContactSubmission {
   email     String
   phone     String?
   message   String
-  formType  String   @default("general") // general, attorney_specific
-  attorney  String?  // for attorney-specific inquiries
+  status    String   @default("new")
+  formType  String   @default("contact")
   createdAt DateTime @default(now())
-  status    String   @default("new") // new, reviewed, responded
-  
+  updatedAt DateTime @updatedAt
+
   @@map("contact_submissions")
 }

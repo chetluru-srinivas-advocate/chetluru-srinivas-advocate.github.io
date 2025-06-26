@@ -1,112 +1,121 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Scale, Phone } from 'lucide-react'
+import { Scale, Menu, X } from 'lucide-react'
+import { firmData } from '@/lib/law-firm-data'
 
-export function Header() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Practice Areas', href: '/practice-areas' },
-    { name: 'Our Team', href: '/team' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Contact Us', href: '/contact' },
-  ]
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsMenuOpen(false)
+  }
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container">
-        <div className="flex items-center justify-between h-16">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-white/80 backdrop-blur-sm'
+    }`}>
+      <div className="container-custom">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Scale className="w-6 h-6 text-white" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="p-2 bg-primary rounded-lg group-hover:bg-primary/90 transition-colors">
+              <Scale className="h-6 w-6 text-white" />
             </div>
-            <div>
-              <div className="font-bold text-blue-900 text-lg leading-tight">
-                Chetluru Srinivas
+            <div className="hidden sm:block">
+              <div className="font-serif font-bold text-lg lg:text-xl text-primary">
+                {firmData.firm_profile.name}
               </div>
-              <div className="text-sm text-blue-600 leading-tight">
-                & Associates
+              <div className="text-xs text-muted-foreground">
+                Legal Excellence Since {firmData.firm_profile.established_year}
               </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA Button - Desktop */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:+919848022338"
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
             >
-              <Phone className="w-4 h-4" />
-              <span className="font-semibold">+91 98480 22338</span>
-            </a>
-            <Link href="/contact" className="btn-primary">
-              Free Consultation
-            </Link>
-          </div>
+              Home
+            </button>
+            <button 
+              onClick={() => scrollToSection('team')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Our Team
+            </button>
+            <button 
+              onClick={() => scrollToSection('practice-areas')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Practice Areas
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="btn-primary"
+            >
+              Contact Us
+            </button>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-blue-600"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
-          <div className="container">
-            <nav className="py-4 space-y-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 border-t space-y-3">
-                <a
-                  href="tel:+919848022338"
-                  className="flex items-center gap-2 text-blue-600 font-semibold"
-                >
-                  <Phone className="w-4 h-4" />
-                  +91 98480 22338
-                </a>
-                <Link 
-                  href="/contact" 
-                  className="btn-primary block text-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Free Consultation
-                </Link>
-              </div>
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden py-4 border-t">
+            <nav className="flex flex-col gap-4">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => scrollToSection('team')}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Our Team
+              </button>
+              <button 
+                onClick={() => scrollToSection('practice-areas')}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Practice Areas
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Contact Us
+              </button>
             </nav>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   )
 }

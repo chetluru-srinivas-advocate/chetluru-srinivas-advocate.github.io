@@ -1,129 +1,244 @@
 
 import { notFound } from 'next/navigation'
-import { AttorneyProfile } from './_components/attorney-profile'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowLeft, Mail, Award, GraduationCap, Briefcase, Calendar } from 'lucide-react'
+import { firmData } from '@/lib/law-firm-data'
+import type { Metadata } from 'next'
 
-const attorneys = [
-  {
-    name: "Chetluru Srinivas",
-    title: "Founder & Senior Advocate",
-    experience: "35+ years",
-    education: "B.A., LL.B",
-    specialization: "Corporate Law & Civil Litigation",
-    slug: "chetluru-srinivas",
-    bio: "As the Founder and Senior Advocate of the firm, Chetluru Srinivas is a distinguished legal practitioner with over 35 years of extensive experience in the field. Holding B.A. and LL.B degrees, he has established a formidable reputation for his deep expertise and strategic acumen, particularly in the complex domains of Corporate Law and Civil Litigation. His visionary leadership has been the guiding force behind the firm's growth and its unwavering commitment to legal excellence and client success since its establishment in 1991.",
-    expertise: [
-      "Corporate Law",
-      "Civil Litigation", 
-      "Commercial Disputes",
-      "Contract Law",
-      "Property Law",
-      "Business Transactions"
-    ]
-  },
-  {
-    name: "Kiran Kumar Tirunahari",
-    title: "Senior Associate",
-    experience: "25+ years",
-    education: "LL.B",
-    specialization: "Civil & Criminal Law",
-    slug: "kiran-kumar-tirunahari",
-    bio: "Kiran Kumar Tirunahari serves as a Senior Associate, bringing more than 25 years of seasoned legal experience to the firm. With an LL.B degree, he has developed a specialized practice that skillfully navigates the intersection of Civil and Criminal Law. His comprehensive understanding of both fields allows him to provide versatile and effective representation, handling a wide range of disputes with a strategic and results-oriented approach that greatly benefits the firm's diverse clientele.",
-    expertise: [
-      "Civil Litigation",
-      "Criminal Defense",
-      "Constitutional Law",
-      "Administrative Law",
-      "Consumer Protection",
-      "Tort Law"
-    ]
-  },
-  {
-    name: "P. Vijaya Saradhi",
-    title: "Advocate",
-    experience: "23+ years",
-    education: "LL.B",
-    specialization: "Civil, Criminal & Family Law",
-    slug: "p-vijaya-saradhi",
-    bio: "P. Vijaya Saradhi is a highly respected Advocate with over 23 years of professional experience. An LL.B graduate, his practice is characterized by its breadth, covering Civil, Criminal, and Family Law. This tripartite expertise enables him to handle multifaceted cases that often involve overlapping legal issues. He is known for his diligent representation and his ability to provide empathetic yet strong counsel, particularly in sensitive family law matters.",
-    expertise: [
-      "Family Law",
-      "Divorce Proceedings",
-      "Child Custody",
-      "Criminal Defense",
-      "Civil Litigation",
-      "Domestic Violence Cases"
-    ]
-  },
-  {
-    name: "Yajur Putta",
-    title: "Advocate",
-    experience: "6+ years",
-    education: "BBA LLB (Hons.), M.B.A",
-    specialization: "Corporate & Commercial Law",
-    slug: "yajur-putta",
-    bio: "Yajur Putta is a dynamic Advocate whose modern legal education is reflected in his dual qualifications of a BBA LLB (Hons.) and an M.B.A. With over six years of experience, he brings a unique, business-oriented perspective to the practice of law. This combination of legal and business acumen makes him particularly effective in corporate and commercial matters, where he can provide holistic advice that considers both legal risk and business objectives.",
-    expertise: [
-      "Corporate Law",
-      "Commercial Transactions",
-      "Business Consulting",
-      "Mergers & Acquisitions",
-      "Contract Negotiation",
-      "Compliance & Regulatory"
-    ]
-  },
-  {
-    name: "K.S. Kushal",
-    title: "Advocate",
-    experience: "4+ years",
-    education: "BBA LLB (Hons.), PG Diploma in IPR",
-    specialization: "Intellectual Property Rights",
-    slug: "ks-kushal",
-    bio: "K.S. Kushal is an Advocate with four years of experience who holds a BBA LLB (Hons.) degree complemented by a Post Graduate Diploma in Intellectual Property Rights (IPR). This specialized qualification makes him a key asset in the firm's IP practice. His contemporary training and focused expertise in IPR allow him to provide clients with up-to-date and knowledgeable advice on protecting their valuable intellectual assets in a rapidly evolving legal landscape.",
-    expertise: [
-      "Intellectual Property Rights",
-      "Copyright Law",
-      "Trademark Registration",
-      "Patent Applications",
-      "IP Litigation",
-      "Brand Protection"
-    ]
-  },
-  {
-    name: "Ch. Vimalanand",
-    title: "IP Law Specialist",
-    experience: "12+ years",
-    education: "B.Tech., LL.B",
-    specialization: "Patent & Trademark Law",
-    slug: "ch-vimalanand",
-    bio: "Ch. Vimalanand is the firm's IP Law Specialist, bringing a unique and valuable background to the team. With a B.Tech. degree in addition to his LL.B, and over 12 years of industry experience, he possesses a deep, practical understanding of technology and innovation. As a registered Patent Agent and Trademark Attorney, he is exceptionally qualified to handle the technical and legal intricacies of patent and trademark law, from drafting and filing to litigation.",
-    expertise: [
-      "Patent Law",
-      "Trademark Law",
-      "Technology Transfer",
-      "IP Portfolio Management",
-      "Patent Prosecution",
-      "IP Due Diligence"
-    ]
-  }
-]
-
-// This function is required for static export with dynamic routes
-export async function generateStaticParams() {
-  return attorneys.map((attorney) => ({
-    slug: attorney.slug,
-  }))
-}
-
-interface AttorneyPageProps {
+interface Props {
   params: { slug: string }
 }
 
-export default function AttorneyPage({ params }: AttorneyPageProps) {
-  const attorney = attorneys.find(att => att.slug === params.slug)
+export async function generateStaticParams() {
+  return firmData.lawyers.map((lawyer) => ({
+    slug: lawyer.slug,
+  }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const lawyer = firmData.lawyers.find((lawyer) => lawyer.slug === params.slug)
   
-  if (!attorney) {
+  if (!lawyer) {
+    return {
+      title: 'Lawyer Not Found',
+    }
+  }
+
+  return {
+    title: `${lawyer.name} - ${lawyer.title} | Chetluru Srinivas & Associates`,
+    description: `Meet ${lawyer.name}, ${lawyer.title} at Chetluru Srinivas & Associates. ${lawyer.experience} in ${lawyer.specializations?.join(', ') || 'legal practice'}.`,
+    keywords: `${lawyer.name}, ${lawyer.title}, lawyer Hyderabad, legal services, ${lawyer.specializations?.join(', ') || ''}`,
+  }
+}
+
+export default function LawyerPage({ params }: Props) {
+  const lawyer = firmData.lawyers.find((lawyer) => lawyer.slug === params.slug)
+
+  if (!lawyer) {
     notFound()
   }
 
-  return <AttorneyProfile attorney={attorney} />
+  return (
+    <div className="min-h-screen bg-muted/30">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="container-custom py-4">
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            Back to Home
+          </Link>
+        </div>
+      </header>
+
+      <main className="py-12 lg:py-20">
+        <div className="container-custom">
+          {/* Hero Section */}
+          <div className="bg-white rounded-2xl shadow-xl border border-border overflow-hidden mb-12">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* Photo */}
+              <div className="relative aspect-[4/5] lg:aspect-[3/4] bg-gradient-to-br from-primary/10 to-secondary/10">
+                <Image
+                  src="https://i.pinimg.com/736x/26/25/9c/26259c44b99e0418c9bd39d78fa570a9.jpg"
+                  alt={`${lawyer.name} - ${lawyer.title}`}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
+              </div>
+
+              {/* Basic Info */}
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="space-y-6">
+                  <div>
+                    <h1 className="text-3xl lg:text-4xl font-serif font-bold text-primary mb-2">
+                      {lawyer.name}
+                    </h1>
+                    <h2 className="text-xl lg:text-2xl text-secondary font-medium mb-4">
+                      {lawyer.title}
+                    </h2>
+                    {lawyer.registration && (
+                      <p className="text-muted-foreground mb-4">
+                        Registration: {lawyer.registration}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <Calendar className="h-5 w-5 text-primary" />
+                      </div>
+                      <span className="text-foreground font-medium">{lawyer.experience}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-secondary/10 rounded-lg">
+                        <GraduationCap className="h-5 w-5 text-secondary" />
+                      </div>
+                      <span className="text-foreground">{lawyer.education}</span>
+                    </div>
+
+                    {lawyer.contact?.email && (
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-accent/30 rounded-lg">
+                          <Mail className="h-5 w-5 text-primary" />
+                        </div>
+                        <a 
+                          href={`mailto:${lawyer.contact.email}`}
+                          className="text-foreground hover:text-secondary transition-colors"
+                        >
+                          {lawyer.contact.email}
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Specializations */}
+                  {lawyer.specializations && lawyer.specializations.length > 0 && (
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-3">Specializations:</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {lawyer.specializations.map((spec, index) => (
+                          <span 
+                            key={index}
+                            className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                          >
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Information */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Biography */}
+            {lawyer.bio && (
+              <div className="lg:col-span-2 bg-white p-8 lg:p-10 rounded-2xl shadow-xl border border-border">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-6 flex items-center gap-3">
+                  <Briefcase className="h-6 w-6" />
+                  Professional Biography
+                </h3>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-foreground leading-relaxed whitespace-pre-line">
+                    {lawyer.bio}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Education & Sidebar */}
+            <div className="space-y-8">
+              {/* Education History */}
+              {lawyer.education_history && lawyer.education_history.length > 0 && (
+                <div className="bg-white p-6 lg:p-8 rounded-2xl shadow-xl border border-border">
+                  <h3 className="text-xl font-serif font-bold text-primary mb-6 flex items-center gap-3">
+                    <GraduationCap className="h-5 w-5" />
+                    Education
+                  </h3>
+                  <div className="space-y-4">
+                    {lawyer.education_history.map((edu, index) => (
+                      <div key={index} className="border-l-2 border-primary/20 pl-4 pb-4 last:pb-0">
+                        <div className="font-semibold text-primary">{edu.degree}</div>
+                        <div className="text-secondary font-medium">{edu.university}</div>
+                        <div className="text-sm text-muted-foreground">{edu.year}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Experience Summary */}
+              <div className="bg-gradient-to-br from-primary to-secondary p-6 lg:p-8 rounded-2xl text-white">
+                <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-3">
+                  <Award className="h-5 w-5" />
+                  Experience
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <div className="text-2xl font-bold">{lawyer.experience}</div>
+                    <div className="text-white/90">Legal Practice</div>
+                  </div>
+                  {lawyer.specializations && lawyer.specializations.length > 0 && (
+                    <div>
+                      <div className="text-lg font-semibold">{lawyer.specializations.length}</div>
+                      <div className="text-white/90">Areas of Specialization</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Contact Card */}
+              <div className="bg-white p-6 lg:p-8 rounded-2xl shadow-xl border border-border">
+                <h3 className="text-xl font-serif font-bold text-primary mb-4">
+                  Get in Touch
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Ready to discuss your legal needs? Contact {lawyer.name} for expert legal advice.
+                </p>
+                <div className="space-y-3">
+                  {lawyer.contact?.email && (
+                    <a 
+                      href={`mailto:${lawyer.contact.email}`}
+                      className="w-full btn-primary justify-center"
+                    >
+                      <Mail className="h-5 w-5" />
+                      Send Email
+                    </a>
+                  )}
+                  <a 
+                    href={`tel:+91${firmData.contact_info.phone}`}
+                    className="w-full btn-secondary justify-center"
+                  >
+                    <Award className="h-5 w-5" />
+                    Call Office
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Back to Team */}
+          <div className="mt-12 text-center">
+            <Link 
+              href="/#team"
+              className="btn-primary"
+            >
+              <ArrowLeft className="h-5 w-5" />
+              Back to Our Team
+            </Link>
+          </div>
+        </div>
+      </main>
+    </div>
+  )
 }

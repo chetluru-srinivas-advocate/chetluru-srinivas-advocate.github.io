@@ -1,18 +1,24 @@
 
-import { HeroSection } from '@/components/hero-section'
-import { TeamSection } from '@/components/team-section'
-import { PracticeAreasPreview } from '@/components/practice-areas-preview'
-import { TestimonialsSlider } from '@/components/testimonials-slider'
-import { ContactBanner } from '@/components/contact-banner'
+import Header from '@/components/header'
+import HeroSection from '@/components/hero-section'
+import PracticeAreasSection from '@/components/practice-areas-section'
+import TeamSection from '@/components/team-section'
+import TestimonialsSection from '@/components/testimonials-section'
+import ContactSection from '@/components/contact-section'
+import Footer from '@/components/footer'
 
 export default function HomePage() {
   return (
-    <>
-      <HeroSection />
-      <TeamSection />
-      <PracticeAreasPreview />
-      <TestimonialsSlider />
-      <ContactBanner />
-    </>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <HeroSection />
+        <PracticeAreasSection />
+        <TeamSection />
+        <TestimonialsSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
   )
 }
