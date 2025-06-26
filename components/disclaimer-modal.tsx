@@ -32,8 +32,7 @@ export default function DisclaimerModal({ onAgree }: DisclaimerModalProps) {
               <Scale className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Legal Disclaimer</h1>
-              <p className="text-blue-100">Chetluru Srinivas & Associates</p>
+              <h1 className="text-2xl font-bold text-white">Disclaimer</h1>
             </div>
           </div>
         </div>

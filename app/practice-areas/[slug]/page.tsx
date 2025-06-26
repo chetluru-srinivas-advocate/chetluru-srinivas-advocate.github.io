@@ -160,12 +160,6 @@ export default async function PracticeAreaPage({ params }: PracticeAreaPageProps
                     <span>chetluru2025@gmail.com</span>
                   </a>
                 </div>
-                <Link
-                  href="/#contact"
-                  className="btn-primary w-full mt-6 bg-blue-600 hover:bg-blue-500"
-                >
-                  Request Consultation
-                </Link>
               </div>
 
               {/* Related Practice Areas */}

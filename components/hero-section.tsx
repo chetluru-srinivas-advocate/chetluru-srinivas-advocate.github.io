@@ -58,9 +58,6 @@ export default function HeroSection({ firmName, tagline, description, statistics
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
                 {tagline}
               </h1>
-              <p className="text-xl lg:text-2xl text-blue-100 font-light">
-                {firmName}
-              </p>
               <p className="text-lg text-blue-50 leading-relaxed max-w-2xl">
                 {description}
               </p>
