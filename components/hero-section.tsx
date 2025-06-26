@@ -135,26 +135,6 @@ export default function HeroSection({ firmName, tagline, description, statistics
           </div>
         </div>
 
-        {/* Local SEO Content */}
-        <div className="mt-16 text-center text-blue-100">
-          <h2 className="text-2xl font-bold mb-4">Leading Law Firm in Hyderabad</h2>
-          <p className="text-lg max-w-4xl mx-auto">
-            <strong>Chetluru Srinivas & Associates</strong> is one of the most trusted law firms in Hyderabad, 
-            serving clients across Telangana and India. Our team of experienced advocates specializes in 
-            corporate law, civil litigation, criminal defense, intellectual property, and family law matters.
-          </p>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-            <div>
-              <strong>🏢 Corporate Law:</strong> Company formation, NCLT proceedings, mergers & acquisitions
-            </div>
-            <div>
-              <strong>⚖️ Civil Litigation:</strong> Property disputes, land litigation, contract matters
-            </div>
-            <div>
-              <strong>🛡️ Criminal Defense:</strong> CBI cases, PMLA violations, criminal appeals
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
