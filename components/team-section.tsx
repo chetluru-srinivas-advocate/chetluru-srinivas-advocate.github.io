@@ -157,19 +157,7 @@ export default function TeamSection({ advocates }: TeamSectionProps) {
                     </p>
                   </div>
                 )}
-                
-                {advocate.email && (
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Mail className="w-4 h-4 mr-2" />
-                    <span className="truncate">{advocate.email}</span>
-                  </div>
-                )}
-                
-                {advocate.registration && (
-                  <div className="mt-2 text-sm text-gray-600">
-                    <strong>Registration:</strong> {advocate.registration}
-                  </div>
-                )}
+
                 
                 <div className="mt-4 text-blue-600 font-medium group-hover:text-blue-800 transition-colors">
                   View Profile →
