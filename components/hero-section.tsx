@@ -47,6 +47,8 @@ export default function HeroSection({ firmName, tagline, description, statistics
     <section
       id="home"
       className="relative min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
+      itemScope
+      itemType="https://schema.org/LegalService"
     >
       {/* Header spacer to prevent overlay */}
       <div className="h-24 lg:h-28"></div>
@@ -55,18 +57,25 @@ export default function HeroSection({ firmName, tagline, description, statistics
           {/* Left Content */}
           <div className={`text-white space-y-8 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'}`}>
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white" itemProp="name">
                 {tagline}
               </h1>
-              <p className="text-lg text-blue-50 leading-relaxed max-w-2xl">
+              <p className="text-lg text-blue-50 leading-relaxed max-w-2xl" itemProp="description">
                 {description}
               </p>
+              {/* Local SEO Keywords */}
+              <div className="text-sm text-blue-200 space-y-1">
+                <p><strong>📍 Location:</strong> Banjara Hills, Hyderabad, Telangana</p>
+                <p><strong>⚖️ Specializations:</strong> Corporate Law, Civil Litigation, Criminal Cases, IP Law</p>
+                <p><strong>👨‍⚖️ Lead Advocate:</strong> Chetluru Srinivas - Senior Advocate with 35+ Years Experience</p>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={scrollToContact}
                 className="btn-primary flex items-center justify-center space-x-2 text-lg px-8 py-4"
+                aria-label="Schedule a consultation with Chetluru Srinivas & Associates"
               >
                 <span>Schedule a Consultation</span>
                 <ArrowRight className="w-5 h-5" />
@@ -79,6 +88,7 @@ export default function HeroSection({ firmName, tagline, description, statistics
                   }
                 }}
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-medium transition-all duration-300 text-lg"
+                aria-label="View our legal services and practice areas"
               >
                 Our Services
               </button>
@@ -91,15 +101,19 @@ export default function HeroSection({ firmName, tagline, description, statistics
               <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm">
                 <Image
                   src="/images/chetluru_srinivas_optimized.jpg"
-                  alt="Chetluru Srinivas - Founder & Senior Advocate"
+                  alt="Chetluru Srinivas - Founder & Senior Advocate in Hyderabad - Expert Corporate and Civil Litigation Lawyer"
                   fill
                   className="object-cover"
                   priority
+                  itemProp="image"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                  <h3 className="text-white text-xl font-semibold">Chetluru Srinivas</h3>
-                  <p className="text-blue-100">Founder & Senior Advocate</p>
-                  <p className="text-blue-200 text-sm">35+ Years of Legal Excellence</p>
+                  <h3 className="text-white text-xl font-semibold" itemProp="founder" itemScope itemType="https://schema.org/Person">
+                    <span itemProp="name">Chetluru Srinivas</span>
+                  </h3>
+                  <p className="text-blue-100" itemProp="jobTitle">Founder & Senior Advocate</p>
+                  <p className="text-blue-200 text-sm">35+ Years of Legal Excellence in Hyderabad</p>
+                  <p className="text-blue-200 text-xs mt-1">📍 Banjara Hills, Hyderabad, Telangana</p>
                 </div>
               </div>
             </div>
@@ -118,6 +132,27 @@ export default function HeroSection({ firmName, tagline, description, statistics
                 <p className="text-blue-100 text-sm font-medium">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Local SEO Content */}
+        <div className="mt-16 text-center text-blue-100">
+          <h2 className="text-2xl font-bold mb-4">Leading Law Firm in Hyderabad</h2>
+          <p className="text-lg max-w-4xl mx-auto">
+            <strong>Chetluru Srinivas & Associates</strong> is one of the most trusted law firms in Hyderabad, 
+            serving clients across Telangana and India. Our team of experienced advocates specializes in 
+            corporate law, civil litigation, criminal defense, intellectual property, and family law matters.
+          </p>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div>
+              <strong>🏢 Corporate Law:</strong> Company formation, NCLT proceedings, mergers & acquisitions
+            </div>
+            <div>
+              <strong>⚖️ Civil Litigation:</strong> Property disputes, land litigation, contract matters
+            </div>
+            <div>
+              <strong>🛡️ Criminal Defense:</strong> CBI cases, PMLA violations, criminal appeals
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Allow all important pages
+Allow: /team/
+Allow: /practice-areas/
+Allow: /images/
+Allow: /awards/
+
+# Disallow any private or admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://chetluru-srinivas-advocate.github.io/sitemap.xml
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1 
