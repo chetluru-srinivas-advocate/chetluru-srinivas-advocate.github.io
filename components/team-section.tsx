@@ -106,7 +106,7 @@ export default function TeamSection({ advocates }: TeamSectionProps) {
                   src={getAdvocateImage(advocate.name)}
                   alt={`${advocate.name} - ${advocate.title}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
                 {advocate.isFounder && (
                   <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
