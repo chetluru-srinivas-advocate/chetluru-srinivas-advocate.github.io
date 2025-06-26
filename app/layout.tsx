@@ -1,6 +1,6 @@
-
 import type { Metadata } from 'next'
 import './globals.css'
+import DisclaimerProvider from '../components/disclaimer-provider'
 
 export const metadata: Metadata = {
   title: 'Chetluru Srinivas & Associates - Expert Legal Counsel',
@@ -46,7 +46,9 @@ export default function RootLayout({
         <link rel="canonical" href="https://chetluru-srinivas-advocate.github.io" />
       </head>
       <body suppressHydrationWarning={true}>
-        {children}
+        <DisclaimerProvider>
+          {children}
+        </DisclaimerProvider>
       </body>
     </html>
   )

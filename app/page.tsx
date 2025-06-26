@@ -1,4 +1,3 @@
-
 import dynamic from 'next/dynamic';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -30,6 +29,10 @@ const ContactSection = dynamic(() => import('../components/contact-section'), {
   loading: () => <div className="section-padding bg-white animate-pulse" />
 });
 
+const DisclaimerReset = dynamic(() => import('../components/disclaimer-reset'), {
+  ssr: false,
+});
+
 export default function HomePage() {
   return (
     <main className="min-h-screen">
@@ -51,6 +54,9 @@ export default function HomePage() {
       <ContactSection contactInfo={lawFirmContent?.contactInfo} />
       
       <Footer />
+      
+      {/* Disclaimer Reset Button (for testing) */}
+      <DisclaimerReset />
     </main>
   );
 }
