@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -54,6 +53,33 @@ export default function TeamSection({ advocates }: TeamSectionProps) {
     return advocate.experienceYears || advocate.industryExperienceYears || 'Experienced';
   };
 
+  const getAdvocateImage = (advocateName: string) => {
+    const name = advocateName.toLowerCase();
+    
+    // Map advocate names to their image files
+    if (name.includes('chetluru') || name.includes('srinivas')) {
+      return '/images/chetluru_srinivas_optimized.jpg';
+    }
+    if (name.includes('vijay')) {
+      return '/images/Vijay_1.jpg';
+    }
+    if (name.includes('kiran')) {
+      return '/images/Kiran_3.jpg';
+    }
+    if (name.includes('vimalanand') || name.includes('vimal')) {
+      return '/images/vimalanand_optimized.jpg';
+    }
+    if (name.includes('yajur')) {
+      return '/images/vakil2_optimized.jpg';
+    }
+    if (name.includes('kushal')) {
+      return '/images/vakil2_optimized.jpg';
+    }
+    
+    // Default fallback image
+    return '/images/chetluru_srinivas_optimized.jpg';
+  };
+
   return (
     <section id="team" className="section-padding bg-gray-50">
       <div className="container-max">
@@ -77,7 +103,7 @@ export default function TeamSection({ advocates }: TeamSectionProps) {
             >
               <div className="relative h-64 bg-gradient-to-br from-blue-50 to-blue-100">
                 <Image
-                  src="https://i.pinimg.com/originals/45/23/50/452350e9d256a82d0d6f76d2b42fb5ae.jpg"
+                  src={getAdvocateImage(advocate.name)}
                   alt={`${advocate.name} - ${advocate.title}`}
                   fill
                   className="object-cover"
