@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ChevronRight, Scale, Mail, Phone } from 'lucide-react';
 import Header from '../../../components/header';
 import Footer from '../../../components/footer';
+import Breadcrumb from '../../../components/ui/breadcrumb';
 import lawFirmContent from '../../../data/law_firm_content.json';
 
 interface PracticeArea {
@@ -79,6 +80,11 @@ export default async function PracticeAreaPage({ params }: PracticeAreaPageProps
       ) || advocate.specializations?.length === 0
   ).slice(0, 2) || [];
 
+  const breadcrumbItems = [
+    { label: 'Practice Areas', href: '/#practice-areas' },
+    { label: practiceArea.name }
+  ];
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -87,13 +93,10 @@ export default async function PracticeAreaPage({ params }: PracticeAreaPageProps
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
         <div className="container-max">
           <div className="max-w-4xl">
-            <Link
-              href="/"
-              className="inline-flex items-center text-blue-200 hover:text-white mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Link>
+            {/* Breadcrumb Navigation */}
+            <div className="mb-6">
+              <Breadcrumb items={breadcrumbItems} className="text-blue-200" />
+            </div>
             
             <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
               {practiceArea.name}

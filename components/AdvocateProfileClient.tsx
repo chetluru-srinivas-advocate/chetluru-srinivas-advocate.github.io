@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Award, Scale, GraduationCap, Phone } from 'lucide-react';
+import Breadcrumb from './ui/breadcrumb';
 
 interface Advocate {
   name: string;
@@ -47,18 +48,21 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
     return '/images/chetluru_srinivas_optimized.jpg';
   };
 
+  const breadcrumbItems = [
+    { label: 'Our Team', href: '/#team' },
+    { label: advocate.name }
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-16 sm:pt-20 pb-12 sm:pb-16 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
         <div className="container-max">
-          <Link
-            href="/"
-            className="inline-flex items-center text-blue-200 hover:text-white mb-4 sm:mb-6 transition-colors"
-          >
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-            Back to Home
-          </Link>
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6">
+            <Breadcrumb items={breadcrumbItems} className="text-blue-200" />
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-center">
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
