@@ -191,6 +191,20 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
                       </div>
                     )}
                   </div>
+
+                  {/* Election Commission Appointment (only for Chetluru Srinivas) */}
+                  {advocate.name.toLowerCase().includes('chetluru') && (
+                    <div className="mt-8 flex flex-col items-center">
+                      <img
+                        src="/awards/eci.jpg"
+                        alt="Appointment by Election Commission of India"
+                        className="rounded-xl shadow-lg max-w-xs w-full border border-blue-200"
+                      />
+                      <p className="mt-4 text-center text-blue-900 font-semibold text-sm">
+                        Appointed as Election Commission of India's Senior Counsel in Telangana
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Education */}
