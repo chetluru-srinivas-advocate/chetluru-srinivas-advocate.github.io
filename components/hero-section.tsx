@@ -45,11 +45,13 @@ export default function HeroSection({ firmName, tagline, description, statistics
   };
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
+    <section
+      id="home"
+      className="relative min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
     >
-      <div className="container-max py-20 pt-32">
+      {/* Header spacer to prevent overlay */}
+      <div className="h-20"></div>
+      <div className="container-max pt-20 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className={`text-white space-y-8 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'}`}>
@@ -66,7 +68,7 @@ export default function HeroSection({ firmName, tagline, description, statistics
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
+              <button
                 onClick={scrollToContact}
                 className="btn-primary flex items-center justify-center space-x-2 text-lg px-8 py-4"
               >
