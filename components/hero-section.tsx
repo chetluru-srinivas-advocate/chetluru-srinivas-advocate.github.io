@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -50,8 +49,8 @@ export default function HeroSection({ firmName, tagline, description, statistics
       className="relative min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
     >
       {/* Header spacer to prevent overlay */}
-      <div className="h-20"></div>
-      <div className="container-max pt-20 pb-20">
+      <div className="h-24 lg:h-28"></div>
+      <div className="container-max pt-8 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className={`text-white space-y-8 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'}`}>
