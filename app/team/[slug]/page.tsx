@@ -5,6 +5,7 @@ import { ArrowLeft, Mail, Award, GraduationCap, Scale, Phone } from 'lucide-reac
 import Header from '../../../components/header';
 import Footer from '../../../components/footer';
 import lawFirmContent from '../../../data/law_firm_content.json';
+import { useState } from 'react';
 
 interface Advocate {
   name: string;
@@ -96,6 +97,8 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
     // Default fallback image
     return '/images/chetluru_srinivas_optimized.jpg';
   };
+
+  const [isEciModalOpen, setEciModalOpen] = useState(false);
 
   return (
     <main className="min-h-screen">
@@ -198,11 +201,30 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
                       <img
                         src="/awards/eci.jpg"
                         alt="Appointment by Election Commission of India"
-                        className="rounded-xl shadow-lg max-w-xs w-full border border-blue-200"
+                        className="rounded-xl shadow-lg max-w-xs w-full border border-blue-200 cursor-zoom-in transition-transform hover:scale-105"
+                        onClick={() => setEciModalOpen(true)}
                       />
                       <p className="mt-4 text-center text-blue-900 font-semibold text-sm">
                         Appointed as Election Commission of India's Senior Counsel in Telangana
                       </p>
+                      {isEciModalOpen && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80" onClick={() => setEciModalOpen(false)}>
+                          <div className="relative" onClick={e => e.stopPropagation()}>
+                            <img
+                              src="/awards/eci.jpg"
+                              alt="Appointment by Election Commission of India"
+                              className="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl border-4 border-white"
+                            />
+                            <button
+                              onClick={() => setEciModalOpen(false)}
+                              className="absolute top-2 right-2 bg-white bg-opacity-80 hover:bg-opacity-100 text-blue-900 rounded-full p-2 shadow-lg"
+                              aria-label="Close"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
