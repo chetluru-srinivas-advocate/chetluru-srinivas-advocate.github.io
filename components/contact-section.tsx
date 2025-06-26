@@ -37,28 +37,42 @@ export default function ContactSection() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Legal Consultation Request from ${formData.name}`)
+      const body = encodeURIComponent(
+        `Dear Chetluru Srinivas & Associates,
 
-      if (response.ok) {
-        setIsSubmitted(true)
-        setFormData({ name: '', email: '', phone: '', message: '' })
-        toast({
-          title: "Message Sent Successfully!",
-          description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-        })
-      } else {
-        throw new Error('Failed to submit form')
-      }
+I am writing to request a legal consultation. Please find my details below:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+
+Message:
+${formData.message}
+
+I look forward to hearing from you.
+
+Best regards,
+${formData.name}`
+      )
+      
+      const mailtoLink = `mailto:${firmData.contact_info.email}?subject=${subject}&body=${body}`
+      
+      // Open email client
+      window.location.href = mailtoLink
+      
+      // Show success message
+      setIsSubmitted(true)
+      setFormData({ name: '', email: '', phone: '', message: '' })
+      toast({
+        title: "Email Client Opened!",
+        description: "Your default email application has opened with your message pre-filled. Please send the email to complete your inquiry.",
+      })
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact us directly.",
+        description: "Failed to open email client. Please contact us directly at " + firmData.contact_info.email,
         variant: "destructive",
       })
     } finally {
