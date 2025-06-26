@@ -72,10 +72,10 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-400" />
                 <a
-                  href="tel:+919848022338"
+                  href="tel:+919440222300"
                   className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                 >
-                  +91 9848022338
+                  +91 9440222300
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -97,17 +97,11 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Clock className="w-5 h-5 text-blue-400" />
                 <div className="text-sm">
-                  <p className="text-gray-300">Monday - Friday</p>
-                  <p className="text-gray-400">9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-300">Monday - Saturday</p>
+                  <p className="text-gray-400">10:00 AM - 6:00 PM</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <Clock className="w-5 h-5 text-blue-400" />
-                <div className="text-sm">
-                  <p className="text-gray-300">Saturday</p>
-                  <p className="text-gray-400">9:00 AM - 2:00 PM</p>
-                </div>
-              </div>
+              
               <div className="flex items-center space-x-3">
                 <Clock className="w-5 h-5 text-blue-400" />
                 <div className="text-sm">
