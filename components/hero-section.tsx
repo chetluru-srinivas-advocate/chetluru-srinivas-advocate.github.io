@@ -49,7 +49,7 @@ export default function HeroSection({ firmName, tagline, description, statistics
       id="home" 
       className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
     >
-      <div className="container-max py-20">
+      <div className="container-max py-20 pt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className={`text-white space-y-8 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'}`}>

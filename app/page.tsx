@@ -41,10 +41,10 @@ export default function HomePage() {
         description={lawFirmContent?.firmDetails?.description || ''}
         statistics={lawFirmContent?.firmDetails?.statistics || []}
       />
+
+      <TeamSection advocates={lawFirmContent?.advocates || []} />
       
       <PracticeAreasSection practiceAreas={lawFirmContent?.practiceAreas || []} />
-      
-      <TeamSection advocates={lawFirmContent?.advocates || []} />
       
       <TestimonialsSection testimonials={lawFirmContent?.testimonials || []} />
       
