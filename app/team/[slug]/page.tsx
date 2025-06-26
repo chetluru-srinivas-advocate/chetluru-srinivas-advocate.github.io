@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const advocate = lawFirmContent?.advocates?.find(
     (member) => member.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === params.slug
   );
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function TeamMemberPage({ params }) {
+export default async function TeamMemberPage({ params }: { params: { slug: string } }) {
   const advocate = lawFirmContent?.advocates?.find(
     (member) => member.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === params.slug
   );
