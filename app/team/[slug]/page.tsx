@@ -193,28 +193,38 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
                   </div>
                 </div>
 
-                {/* Why Choose This Advocate */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4">Why Choose {advocate.name}?</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Extensive experience in legal practice with proven results</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Client-focused approach with personalized legal strategies</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Strong track record of successful case outcomes</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Commitment to transparency and clear communication</span>
-                    </li>
-                  </ul>
-                </div>
+                {/* Education */}
+                {advocate.education && advocate.education.length > 0 && (
+                  <div className="bg-white border rounded-xl p-8">
+                    <div className="flex items-center space-x-3 mb-6">
+                      <GraduationCap className="w-6 h-6 text-blue-600" />
+                      <h3 className="text-xl font-bold">Education</h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {advocate.education.map((edu, index) => (
+                        <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                          <p className="font-medium text-gray-900">{edu}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Specializations */}
+                {advocate.specializations && advocate.specializations.length > 0 && (
+                  <div className="bg-white border rounded-xl p-8">
+                    <h3 className="text-xl font-bold mb-6">Areas of Expertise</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {advocate.specializations.map((spec, index) => (
+                        <div key={index} className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
+                          <Scale className="w-4 h-4 text-blue-600" />
+                          <span className="text-gray-700">{spec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
               </div>
             </div>
 
@@ -222,7 +232,7 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
             <div className="space-y-8">
               {/* Quick Info */}
               <div className="bg-blue-900 text-white rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4">Professional Information</h3>
+                <h3 className="text-xl font-bold mb-4 text-white">Professional Information</h3>
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-blue-100 mb-1">Position</h4>
@@ -249,11 +259,11 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
                 
                 <div className="pt-4 border-t border-blue-800 mt-6">
                   <a
-                    href="tel:+919848022338"
+                    href="tel:+919440222300"
                     className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors mb-3"
                   >
                     <Phone className="w-5 h-5" />
-                    <span>+91 9848022338</span>
+                    <span>+91 9440222300</span>
                   </a>
                   <Link
                     href="/#contact"
@@ -263,62 +273,6 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
                   </Link>
                 </div>
               </div>
-
-              {/* Education */}
-              {advocate.education && advocate.education.length > 0 && (
-                <div className="bg-white border rounded-xl p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <GraduationCap className="w-6 h-6 text-blue-600" />
-                    <h3 className="text-xl font-bold">Education</h3>
-                  </div>
-                  <div className="space-y-2">
-                    {advocate.education.map((edu, index) => (
-                      <div key={index} className="p-3 bg-gray-50 rounded-lg">
-                        <p className="font-medium text-gray-900">{edu}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Specializations */}
-              {advocate.specializations && advocate.specializations.length > 0 && (
-                <div className="bg-white border rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4">Areas of Expertise</h3>
-                  <div className="space-y-2">
-                    {advocate.specializations.map((spec, index) => (
-                      <div key={index} className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                        <Scale className="w-4 h-4 text-blue-600" />
-                        <span className="text-gray-700">{spec}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Other Team Members */}
-              {otherMembers.length > 0 && (
-                <div className="bg-white border rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4">Other Team Members</h3>
-                  <div className="space-y-3">
-                    {otherMembers.map((member, index) => (
-                      <Link
-                        key={index}
-                        href={`/team/${member.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`}
-                        className="block p-3 rounded-lg border hover:bg-blue-50 hover:border-blue-200 transition-colors"
-                      >
-                        <h4 className="font-semibold text-gray-900">{member.name}</h4>
-                        <p className="text-blue-600 text-sm">{member.title}</p>
-                        {(member.experienceYears || member.industryExperienceYears) && (
-                          <p className="text-gray-600 text-sm">
-                            {member.experienceYears || member.industryExperienceYears} Experience
-                          </p>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -98,51 +97,6 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Why Choose Us Section */}
-        <div className={`mt-20 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'} delay-600`}>
-          <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-center mb-8">Why Choose Us</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700">
-                  Handles cases under both the original and appellate jurisdictions of the High Court.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700">
-                  Maintains a success rate of 90% in the cases it files.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700">
-                  Committed to transparency, providing clients with a clear assessment of their case's strengths and weaknesses.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700">
-                  Strong emphasis on out-of-court settlements, advising clients on time and costs.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700">
-                  Aims to provide comprehensive legal solutions under one roof.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700">
-                  Offers expertise in patent registration and drafting through a registered patent and trademark agent.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
