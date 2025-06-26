@@ -1,153 +1,150 @@
 
-'use client'
+'use client';
 
-import { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react'
-import { firmData } from '@/lib/law-firm-data'
+import { useEffect, useState } from 'react';
+import { Quote, Star } from 'lucide-react';
 
-export default function TestimonialsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
-  
-  const testimonials = firmData.testimonials
+interface Testimonial {
+  quote: string;
+  clientName: string;
+  caseType: string;
+}
+
+interface TestimonialsSectionProps {
+  testimonials: Testimonial[];
+}
+
+export default function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in')
+            setIsVisible(true);
           }
-        })
+        });
       },
       { threshold: 0.1 }
-    )
+    );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const section = document.getElementById('testimonials');
+    if (section) {
+      observer.observe(section);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    
-    return () => clearInterval(timer)
-  }, [testimonials.length])
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+  // Sample additional testimonials to showcase the firm's expertise
+  const allTestimonials = [
+    ...testimonials,
+    {
+      quote: "The team's expertise in corporate law helped us navigate complex regulatory requirements seamlessly. Their strategic guidance was invaluable for our business expansion.",
+      clientName: "Priya Sharma",
+      caseType: "Corporate Law Client"
+    },
+    {
+      quote: "Professional, knowledgeable, and compassionate. They handled my family law matter with sensitivity while achieving the best possible outcome for my case.",
+      clientName: "Amit Reddy",
+      caseType: "Family Law Client"
+    }
+  ];
 
   return (
-    <section 
-      ref={sectionRef}
-      className="section-padding bg-gradient-to-br from-muted/50 via-white to-accent/20"
-    >
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-serif font-bold text-primary mb-4">
-            Client Testimonials
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Hear from our satisfied clients about their experience with our legal services 
-            and the successful outcomes we've achieved together.
+    <section id="testimonials" className="section-padding bg-blue-50">
+      <div className="container-max">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'}`}>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">What Our Clients Say</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Our commitment to excellence is reflected in the trust and satisfaction of our clients. 
+            Here's what they have to say about our legal services.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white rounded-2xl shadow-xl border border-border p-8 lg:p-12 overflow-hidden">
-            {/* Background Quote Icon */}
-            <div className="absolute top-8 right-8 opacity-5">
-              <Quote className="h-24 w-24 text-primary" />
-            </div>
-
-            {/* Navigation Buttons */}
-            <div className="absolute top-8 left-8 flex gap-2">
-              <button
-                onClick={prevTestimonial}
-                className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors group"
-              >
-                <ChevronLeft className="h-5 w-5 text-primary group-hover:text-secondary" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors group"
-              >
-                <ChevronRight className="h-5 w-5 text-primary group-hover:text-secondary" />
-              </button>
-            </div>
-
-            {/* Testimonial Content */}
-            <div className="relative z-10 pt-8">
-              {/* Stars */}
-              <div className="flex justify-center gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {allTestimonials?.map((testimonial, index) => (
+            <div
+              key={index}
+              className={`testimonial-card rounded-xl p-8 ${
+                isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'
+              }`}
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              <div className="flex items-center justify-between mb-6">
+                <Quote className="w-8 h-8 text-blue-600" />
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, starIndex) => (
+                    <Star
+                      key={starIndex}
+                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
               </div>
-
-              {/* Quote */}
-              <blockquote className="text-lg lg:text-xl text-center text-foreground leading-relaxed mb-8 font-serif italic">
-                "{testimonials[currentIndex]?.quote}"
+              
+              <blockquote className="text-gray-700 mb-6 leading-relaxed">
+                "{testimonial.quote}"
               </blockquote>
-
-              {/* Client Info */}
-              <div className="text-center">
-                <div className="font-semibold text-primary text-lg mb-1">
-                  {testimonials[currentIndex]?.client_name}
+              
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900 mb-1">
+                  {testimonial.clientName}
                 </div>
-                <div className="text-muted-foreground text-sm">
-                  {testimonials[currentIndex]?.client_description}
+                <div className="text-blue-600 text-sm font-medium">
+                  {testimonial.caseType}
                 </div>
               </div>
             </div>
+          ))}
+        </div>
 
-            {/* Dots Indicator */}
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex 
-                      ? 'bg-primary w-8' 
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Success Stats */}
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-border">
-              <div className="text-3xl font-bold text-primary mb-2">90%</div>
-              <div className="text-muted-foreground">Success Rate</div>
-              <div className="text-sm text-muted-foreground mt-1">in filed cases</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-border">
-              <div className="text-3xl font-bold text-secondary mb-2">500+</div>
-              <div className="text-muted-foreground">Happy Clients</div>
-              <div className="text-sm text-muted-foreground mt-1">served nationwide</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-border">
-              <div className="text-3xl font-bold text-primary mb-2">35+</div>
-              <div className="text-muted-foreground">Years Experience</div>
-              <div className="text-sm text-muted-foreground mt-1">in legal practice</div>
+        {/* Why Choose Us Section */}
+        <div className={`mt-20 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'} delay-600`}>
+          <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-center mb-8">Why Choose Us</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-gray-700">
+                  Handles cases under both the original and appellate jurisdictions of the High Court.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-gray-700">
+                  Maintains a success rate of 90% in the cases it files.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-gray-700">
+                  Committed to transparency, providing clients with a clear assessment of their case's strengths and weaknesses.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-gray-700">
+                  Strong emphasis on out-of-court settlements, advising clients on time and costs.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-gray-700">
+                  Aims to provide comprehensive legal solutions under one roof.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-gray-700">
+                  Offers expertise in patent registration and drafting through a registered patent and trademark agent.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

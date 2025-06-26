@@ -1,158 +1,128 @@
 
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
-import Image from 'next/image'
-import { ArrowRight, Award, Users, Calendar, Scale } from 'lucide-react'
-import { firmData } from '@/lib/law-firm-data'
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { ArrowRight, Award, Users, Scale, Trophy } from 'lucide-react';
 
-export default function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null)
+interface Statistic {
+  label: string;
+  value: string;
+}
+
+interface HeroSectionProps {
+  firmName: string;
+  tagline: string;
+  description: string;
+  statistics: Statistic[];
+}
+
+export default function HeroSection({ firmName, tagline, description, statistics }: HeroSectionProps) {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   const scrollToContact = () => {
-    const element = document.getElementById('contact')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
+
+  const getStatIcon = (label: string) => {
+    if (label.includes('Experience') || label.includes('Years')) {
+      return <Award className="w-8 h-8 text-blue-600" />;
+    }
+    if (label.includes('Clients') || label.includes('Happy')) {
+      return <Users className="w-8 h-8 text-blue-600" />;
+    }
+    if (label.includes('Rate') || label.includes('Success')) {
+      return <Trophy className="w-8 h-8 text-blue-600" />;
+    }
+    return <Scale className="w-8 h-8 text-blue-600" />;
+  };
 
   return (
     <section 
-      ref={sectionRef}
       id="home" 
-      className="relative min-h-screen flex items-center pt-20 lg:pt-0 overflow-hidden"
+      className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-muted via-white to-accent/20"></div>
-      
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
-                <Award className="h-4 w-4" />
-                Trusted Since {firmData.firm_profile.established_year}
-              </div>
-              
-              <h1 className="text-4xl lg:text-6xl font-serif font-bold text-primary leading-tight">
-                Expert Legal <span className="text-gradient">Counsel</span> You Can Trust
+      <div className="container-max py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className={`text-white space-y-8 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'}`}>
+            <div className="space-y-4">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
+                {tagline}
               </h1>
-              
-              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                {firmData.firm_profile.tagline}
+              <p className="text-xl lg:text-2xl text-blue-100 font-light">
+                {firmName}
               </p>
-              
-              <p className="text-foreground leading-relaxed">
-                {firmData.firm_profile.about_summary}
+              <p className="text-lg text-blue-50 leading-relaxed max-w-2xl">
+                {description}
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8">
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Calendar className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-primary">35+</div>
-                  <div className="text-sm text-muted-foreground">Years of Experience</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-secondary/10 rounded-lg">
-                  <Award className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-secondary">90%</div>
-                  <div className="text-sm text-muted-foreground">Success Rate</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-accent/30 rounded-lg">
-                  <Users className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-primary">6</div>
-                  <div className="text-sm text-muted-foreground">Expert Lawyers</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={scrollToContact}
-                className="btn-primary text-center justify-center group"
+                className="btn-primary flex items-center justify-center space-x-2 text-lg px-8 py-4"
               >
-                Schedule a Consultation
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <span>Schedule a Consultation</span>
+                <ArrowRight className="w-5 h-5" />
               </button>
-              
-              <button 
+              <button
                 onClick={() => {
-                  const element = document.getElementById('practice-areas')
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' })
+                  const practiceSection = document.getElementById('practice-areas');
+                  if (practiceSection) {
+                    practiceSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-lg font-medium transition-all duration-200 text-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-medium transition-all duration-300 text-lg"
               >
                 Our Services
               </button>
             </div>
           </div>
 
-          {/* Image */}
-          <div className="relative">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 shadow-2xl">
-              <Image
-                src="https://i.pinimg.com/originals/e6/ac/c0/e6acc0778b414a50b17dcc42e935f55d.jpg"
-                alt="Chetluru Srinivas - Founder & Senior Advocate"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"></div>
-            </div>
-            
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-border max-w-xs">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary rounded-lg">
-                  <Scale className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-serif font-bold text-lg text-primary">Chetluru Srinivas</div>
-                  <div className="text-sm text-muted-foreground">Founder & Senior Advocate</div>
-                  <div className="text-xs text-secondary font-medium">35+ Years Experience</div>
+          {/* Right Content - Professional Photo */}
+          <div className={`${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'} delay-300`}>
+            <div className="relative">
+              <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm">
+                <Image
+                  src="https://i.pinimg.com/originals/f2/04/64/f20464cde857581e3e6b44db832b3c23.jpg"
+                  alt="Chetluru Srinivas - Founder & Senior Advocate"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <h3 className="text-white text-xl font-semibold">Chetluru Srinivas</h3>
+                  <p className="text-blue-100">Founder & Senior Advocate</p>
+                  <p className="text-blue-200 text-sm">35+ Years of Legal Excellence</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Statistics Section */}
+        <div className={`mt-20 ${isVisible ? 'animate-on-scroll in-view' : 'animate-on-scroll'} delay-600`}>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+            {statistics?.map((stat, index) => (
+              <div key={index} className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <div className="flex justify-center mb-3">
+                  {getStatIcon(stat.label)}
+                </div>
+                <div className="stats-counter text-white mb-2">{stat.value}</div>
+                <p className="text-blue-100 text-sm font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
-  )
+  );
 }

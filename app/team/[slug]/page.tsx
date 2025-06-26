@@ -1,244 +1,300 @@
 
-import { notFound } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowLeft, Mail, Award, GraduationCap, Briefcase, Calendar } from 'lucide-react'
-import { firmData } from '@/lib/law-firm-data'
-import type { Metadata } from 'next'
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowLeft, Mail, Award, GraduationCap, Scale, Phone } from 'lucide-react';
+import Header from '../../../components/header';
+import Footer from '../../../components/footer';
+import lawFirmContent from '../../../data/law_firm_content.json';
 
-interface Props {
-  params: { slug: string }
+interface Advocate {
+  name: string;
+  title: string;
+  isFounder: boolean;
+  experienceYears?: string | null;
+  industryExperienceYears?: string | null;
+  education: string[];
+  specializations: string[];
+  email?: string | null;
+  registration?: string | null;
+  bio?: string | null;
 }
+
+interface TeamMemberPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export const dynamic = "force-static";
 
 export async function generateStaticParams() {
-  return firmData.lawyers.map((lawyer) => ({
-    slug: lawyer.slug,
-  }))
+  const advocates = lawFirmContent?.advocates || [];
+  
+  return advocates.map((advocate) => ({
+    slug: advocate.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+  }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const lawyer = firmData.lawyers.find((lawyer) => lawyer.slug === params.slug)
-  
-  if (!lawyer) {
+export async function generateMetadata({ params }: TeamMemberPageProps) {
+  const resolvedParams = await params;
+  const advocate = lawFirmContent?.advocates?.find(
+    (member) => member.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === resolvedParams.slug
+  );
+
+  if (!advocate) {
     return {
-      title: 'Lawyer Not Found',
-    }
+      title: 'Team Member Not Found',
+    };
   }
 
   return {
-    title: `${lawyer.name} - ${lawyer.title} | Chetluru Srinivas & Associates`,
-    description: `Meet ${lawyer.name}, ${lawyer.title} at Chetluru Srinivas & Associates. ${lawyer.experience} in ${lawyer.specializations?.join(', ') || 'legal practice'}.`,
-    keywords: `${lawyer.name}, ${lawyer.title}, lawyer Hyderabad, legal services, ${lawyer.specializations?.join(', ') || ''}`,
-  }
+    title: `${advocate.name} - ${advocate.title} | Chetluru Srinivas & Associates`,
+    description: advocate.bio || `${advocate.name} is a ${advocate.title} at Chetluru Srinivas & Associates with ${advocate.experienceYears || advocate.industryExperienceYears || ''} of legal experience.`,
+  };
 }
 
-export default function LawyerPage({ params }: Props) {
-  const lawyer = firmData.lawyers.find((lawyer) => lawyer.slug === params.slug)
+export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
+  const resolvedParams = await params;
+  const advocate = lawFirmContent?.advocates?.find(
+    (member) => member.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === resolvedParams.slug
+  );
 
-  if (!lawyer) {
-    notFound()
+  if (!advocate) {
+    notFound();
   }
 
+  // Get other team members (excluding current one)
+  const otherMembers = lawFirmContent?.advocates?.filter(
+    (member) => member.name !== advocate.name
+  ).slice(0, 3) || [];
+
+  const getExperienceYears = () => {
+    return advocate.experienceYears || advocate.industryExperienceYears || 'Experienced Professional';
+  };
+
   return (
-    <div className="min-h-screen bg-muted/30">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="container-custom py-4">
-          <Link 
+    <main className="min-h-screen">
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="pt-20 pb-16 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+        <div className="container-max">
+          <Link
             href="/"
-            className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium"
+            className="inline-flex items-center text-blue-200 hover:text-white mb-6 transition-colors"
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-        </div>
-      </header>
-
-      <main className="py-12 lg:py-20">
-        <div className="container-custom">
-          {/* Hero Section */}
-          <div className="bg-white rounded-2xl shadow-xl border border-border overflow-hidden mb-12">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-              {/* Photo */}
-              <div className="relative aspect-[4/5] lg:aspect-[3/4] bg-gradient-to-br from-primary/10 to-secondary/10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-2">
+              <div className="flex items-center space-x-4 mb-4">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white">
+                  {advocate.name}
+                </h1>
+                {advocate.isFounder && (
+                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Founder
+                  </span>
+                )}
+              </div>
+              
+              <p className="text-xl text-blue-100 mb-4">{advocate.title}</p>
+              <p className="text-blue-200">{getExperienceYears()} of Legal Experience</p>
+            </div>
+            
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-64 h-64 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
                 <Image
-                  src="https://i.pinimg.com/736x/26/25/9c/26259c44b99e0418c9bd39d78fa570a9.jpg"
-                  alt={`${lawyer.name} - ${lawyer.title}`}
+                  src="https://i.pinimg.com/originals/be/cd/c4/becdc41f3e4695e4c686cd263287c1b6.jpg"
+                  alt={`${advocate.name} - ${advocate.title}`}
                   fill
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
-              </div>
-
-              {/* Basic Info */}
-              <div className="p-8 lg:p-12 flex flex-col justify-center">
-                <div className="space-y-6">
-                  <div>
-                    <h1 className="text-3xl lg:text-4xl font-serif font-bold text-primary mb-2">
-                      {lawyer.name}
-                    </h1>
-                    <h2 className="text-xl lg:text-2xl text-secondary font-medium mb-4">
-                      {lawyer.title}
-                    </h2>
-                    {lawyer.registration && (
-                      <p className="text-muted-foreground mb-4">
-                        Registration: {lawyer.registration}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-primary/10 rounded-lg">
-                        <Calendar className="h-5 w-5 text-primary" />
-                      </div>
-                      <span className="text-foreground font-medium">{lawyer.experience}</span>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-secondary/10 rounded-lg">
-                        <GraduationCap className="h-5 w-5 text-secondary" />
-                      </div>
-                      <span className="text-foreground">{lawyer.education}</span>
-                    </div>
-
-                    {lawyer.contact?.email && (
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-accent/30 rounded-lg">
-                          <Mail className="h-5 w-5 text-primary" />
-                        </div>
-                        <a 
-                          href={`mailto:${lawyer.contact.email}`}
-                          className="text-foreground hover:text-secondary transition-colors"
-                        >
-                          {lawyer.contact.email}
-                        </a>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Specializations */}
-                  {lawyer.specializations && lawyer.specializations.length > 0 && (
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-3">Specializations:</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {lawyer.specializations.map((spec, index) => (
-                          <span 
-                            key={index}
-                            className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
-                          >
-                            {spec}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Detailed Information */}
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Biography */}
-            {lawyer.bio && (
-              <div className="lg:col-span-2 bg-white p-8 lg:p-10 rounded-2xl shadow-xl border border-border">
-                <h3 className="text-2xl font-serif font-bold text-primary mb-6 flex items-center gap-3">
-                  <Briefcase className="h-6 w-6" />
-                  Professional Biography
-                </h3>
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-foreground leading-relaxed whitespace-pre-line">
-                    {lawyer.bio}
-                  </p>
+      {/* Main Content */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              <div className="space-y-8">
+                {/* Biography */}
+                <div>
+                  <h2 className="text-2xl font-bold mb-6">About {advocate.name}</h2>
+                  <div className="prose prose-lg max-w-none">
+                    <p className="text-gray-600 leading-relaxed">
+                      {advocate.bio || `${advocate.name} is a distinguished ${advocate.title} at Chetluru Srinivas & Associates, bringing ${getExperienceYears()} of comprehensive legal experience to the firm. Known for professional excellence and client dedication, ${advocate.name} has established a reputation for delivering strategic legal solutions across various practice areas.`}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Professional Experience */}
+                <div className="bg-gray-50 rounded-xl p-8">
+                  <h3 className="text-xl font-bold mb-6">Professional Highlights</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <Award className="w-6 h-6 text-blue-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Experience</h4>
+                        <p className="text-gray-600">{getExperienceYears()}</p>
+                      </div>
+                    </div>
+                    
+                    {advocate.registration && (
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                          <Scale className="w-6 h-6 text-blue-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">Registration</h4>
+                          <p className="text-gray-600">{advocate.registration}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Why Choose This Advocate */}
+                <div>
+                  <h3 className="text-xl font-bold mb-4">Why Choose {advocate.name}?</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-gray-700">Extensive experience in legal practice with proven results</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-gray-700">Client-focused approach with personalized legal strategies</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-gray-700">Strong track record of successful case outcomes</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-gray-700">Commitment to transparency and clear communication</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* Education & Sidebar */}
+            {/* Sidebar */}
             <div className="space-y-8">
-              {/* Education History */}
-              {lawyer.education_history && lawyer.education_history.length > 0 && (
-                <div className="bg-white p-6 lg:p-8 rounded-2xl shadow-xl border border-border">
-                  <h3 className="text-xl font-serif font-bold text-primary mb-6 flex items-center gap-3">
-                    <GraduationCap className="h-5 w-5" />
-                    Education
-                  </h3>
-                  <div className="space-y-4">
-                    {lawyer.education_history.map((edu, index) => (
-                      <div key={index} className="border-l-2 border-primary/20 pl-4 pb-4 last:pb-0">
-                        <div className="font-semibold text-primary">{edu.degree}</div>
-                        <div className="text-secondary font-medium">{edu.university}</div>
-                        <div className="text-sm text-muted-foreground">{edu.year}</div>
+              {/* Quick Info */}
+              <div className="bg-blue-900 text-white rounded-xl p-6">
+                <h3 className="text-xl font-bold mb-4">Professional Information</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-blue-100 mb-1">Position</h4>
+                    <p>{advocate.title}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-blue-100 mb-1">Experience</h4>
+                    <p>{getExperienceYears()}</p>
+                  </div>
+                  
+                  {advocate.email && (
+                    <div>
+                      <h4 className="font-semibold text-blue-100 mb-1">Email</h4>
+                      <a
+                        href={`mailto:${advocate.email}`}
+                        className="text-blue-200 hover:text-white transition-colors break-all"
+                      >
+                        {advocate.email}
+                      </a>
+                    </div>
+                  )}
+                </div>
+                
+                <div className="pt-4 border-t border-blue-800 mt-6">
+                  <a
+                    href="tel:+919848022338"
+                    className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors mb-3"
+                  >
+                    <Phone className="w-5 h-5" />
+                    <span>+91 9848022338</span>
+                  </a>
+                  <Link
+                    href="/#contact"
+                    className="btn-primary w-full bg-blue-600 hover:bg-blue-500"
+                  >
+                    Contact {advocate.name}
+                  </Link>
+                </div>
+              </div>
+
+              {/* Education */}
+              {advocate.education && advocate.education.length > 0 && (
+                <div className="bg-white border rounded-xl p-6">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <GraduationCap className="w-6 h-6 text-blue-600" />
+                    <h3 className="text-xl font-bold">Education</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {advocate.education.map((edu, index) => (
+                      <div key={index} className="p-3 bg-gray-50 rounded-lg">
+                        <p className="font-medium text-gray-900">{edu}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
 
-              {/* Experience Summary */}
-              <div className="bg-gradient-to-br from-primary to-secondary p-6 lg:p-8 rounded-2xl text-white">
-                <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-3">
-                  <Award className="h-5 w-5" />
-                  Experience
-                </h3>
-                <div className="space-y-3">
-                  <div>
-                    <div className="text-2xl font-bold">{lawyer.experience}</div>
-                    <div className="text-white/90">Legal Practice</div>
+              {/* Specializations */}
+              {advocate.specializations && advocate.specializations.length > 0 && (
+                <div className="bg-white border rounded-xl p-6">
+                  <h3 className="text-xl font-bold mb-4">Areas of Expertise</h3>
+                  <div className="space-y-2">
+                    {advocate.specializations.map((spec, index) => (
+                      <div key={index} className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                        <Scale className="w-4 h-4 text-blue-600" />
+                        <span className="text-gray-700">{spec}</span>
+                      </div>
+                    ))}
                   </div>
-                  {lawyer.specializations && lawyer.specializations.length > 0 && (
-                    <div>
-                      <div className="text-lg font-semibold">{lawyer.specializations.length}</div>
-                      <div className="text-white/90">Areas of Specialization</div>
-                    </div>
-                  )}
                 </div>
-              </div>
+              )}
 
-              {/* Contact Card */}
-              <div className="bg-white p-6 lg:p-8 rounded-2xl shadow-xl border border-border">
-                <h3 className="text-xl font-serif font-bold text-primary mb-4">
-                  Get in Touch
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Ready to discuss your legal needs? Contact {lawyer.name} for expert legal advice.
-                </p>
-                <div className="space-y-3">
-                  {lawyer.contact?.email && (
-                    <a 
-                      href={`mailto:${lawyer.contact.email}`}
-                      className="w-full btn-primary justify-center"
-                    >
-                      <Mail className="h-5 w-5" />
-                      Send Email
-                    </a>
-                  )}
-                  <a 
-                    href={`tel:+91${firmData.contact_info.phone}`}
-                    className="w-full btn-secondary justify-center"
-                  >
-                    <Award className="h-5 w-5" />
-                    Call Office
-                  </a>
+              {/* Other Team Members */}
+              {otherMembers.length > 0 && (
+                <div className="bg-white border rounded-xl p-6">
+                  <h3 className="text-xl font-bold mb-4">Other Team Members</h3>
+                  <div className="space-y-3">
+                    {otherMembers.map((member, index) => (
+                      <Link
+                        key={index}
+                        href={`/team/${member.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`}
+                        className="block p-3 rounded-lg border hover:bg-blue-50 hover:border-blue-200 transition-colors"
+                      >
+                        <h4 className="font-semibold text-gray-900">{member.name}</h4>
+                        <p className="text-blue-600 text-sm">{member.title}</p>
+                        {(member.experienceYears || member.industryExperienceYears) && (
+                          <p className="text-gray-600 text-sm">
+                            {member.experienceYears || member.industryExperienceYears} Experience
+                          </p>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
-
-          {/* Back to Team */}
-          <div className="mt-12 text-center">
-            <Link 
-              href="/#team"
-              className="btn-primary"
-            >
-              <ArrowLeft className="h-5 w-5" />
-              Back to Our Team
-            </Link>
-          </div>
         </div>
-      </main>
-    </div>
-  )
+      </section>
+
+      <Footer />
+    </main>
+  );
 }

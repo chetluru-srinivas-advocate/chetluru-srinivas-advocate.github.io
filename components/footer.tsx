@@ -1,134 +1,149 @@
 
-'use client'
-
-import Link from 'next/link'
-import { Scale, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
-import { firmData } from '@/lib/law-firm-data'
+import Link from 'next/link';
+import { Scale, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
-    <footer className="bg-primary text-white">
-      <div className="container-custom">
-        {/* Main Footer */}
-        <div className="py-16 grid md:grid-cols-3 gap-12">
-          {/* Firm Info */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-white/10 rounded-lg">
-                <Scale className="h-6 w-6" />
+    <footer className="bg-gray-900 text-white">
+      <div className="container-max py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                <Scale className="w-6 h-6 text-white" />
               </div>
               <div>
-                <div className="font-serif font-bold text-lg">
-                  {firmData.firm_profile.name}
-                </div>
-                <div className="text-white/80 text-sm">
-                  Since {firmData.firm_profile.established_year}
-                </div>
+                <h3 className="text-xl font-bold text-white">
+                  Chetluru Srinivas & Associates
+                </h3>
               </div>
             </div>
-            <p className="text-white/80 leading-relaxed">
-              {firmData.firm_profile.tagline}
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Providing expert legal counsel with over 35 years of experience. 
+              We are committed to delivering comprehensive legal solutions with 
+              integrity and professional excellence.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>{firmData.contact_info.address.area}, {firmData.contact_info.address.city}</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <a href={`tel:+91${firmData.contact_info.phone}`} className="hover:text-white transition-colors">
-                  +91 {firmData.contact_info.phone}
-                </a>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <a href={`mailto:${firmData.contact_info.email}`} className="hover:text-white transition-colors">
-                  {firmData.contact_info.email}
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-6">
-            <h3 className="font-serif font-bold text-lg">Quick Links</h3>
-            <nav className="space-y-3">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="block text-white/80 hover:text-white transition-colors text-sm"
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+            <nav className="space-y-2">
+              <Link
+                href="/"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
               >
                 Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('team')}
-                className="block text-white/80 hover:text-white transition-colors text-sm"
-              >
-                Our Team
-              </button>
-              <button 
-                onClick={() => scrollToSection('practice-areas')}
-                className="block text-white/80 hover:text-white transition-colors text-sm"
+              </Link>
+              <Link
+                href="/#practice-areas"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
               >
                 Practice Areas
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block text-white/80 hover:text-white transition-colors text-sm"
+              </Link>
+              <Link
+                href="/#team"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
+              >
+                Our Team
+              </Link>
+              <Link
+                href="/#contact"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
               >
                 Contact Us
-              </button>
+              </Link>
             </nav>
           </div>
 
-          {/* Practice Areas */}
-          <div className="space-y-6">
-            <h3 className="font-serif font-bold text-lg">Practice Areas</h3>
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Contact Information</h4>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                <p className="text-gray-300 text-sm">
+                  #6-3-248/K, Flat No:G2, Abhishek Residency,<br />
+                  Banjara Hills, Road No. 1<br />
+                  Hyderabad, Telangana 500034, India
+                </p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-blue-400" />
+                <a
+                  href="tel:+919848022338"
+                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                >
+                  +91 9848022338
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-blue-400" />
+                <a
+                  href="mailto:chetluru2025@gmail.com"
+                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                >
+                  chetluru2025@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Office Hours */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Office Hours</h4>
             <div className="space-y-2">
-              {firmData.practice_areas.slice(0, 6).map((area, index) => (
-                <div key={index} className="text-sm text-white/80">
-                  {area.name}
+              <div className="flex items-center space-x-3">
+                <Clock className="w-5 h-5 text-blue-400" />
+                <div className="text-sm">
+                  <p className="text-gray-300">Monday - Friday</p>
+                  <p className="text-gray-400">9:00 AM - 6:00 PM</p>
                 </div>
-              ))}
-              {firmData.practice_areas.length > 6 && (
-                <div className="text-sm text-white/60">
-                  +{firmData.practice_areas.length - 6} more areas
+              </div>
+              <div className="flex items-center space-x-3">
+                <Clock className="w-5 h-5 text-blue-400" />
+                <div className="text-sm">
+                  <p className="text-gray-300">Saturday</p>
+                  <p className="text-gray-400">9:00 AM - 2:00 PM</p>
                 </div>
-              )}
+              </div>
+              <div className="flex items-center space-x-3">
+                <Clock className="w-5 h-5 text-blue-400" />
+                <div className="text-sm">
+                  <p className="text-gray-300">Sunday</p>
+                  <p className="text-gray-400">Closed</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/20 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-white/80">
-              © {currentYear} {firmData.firm_profile.name}. All rights reserved.
-            </div>
-            <div className="flex items-center gap-4 text-sm text-white/80">
-              <span>Built for legal excellence</span>
-              <div className="h-4 w-px bg-white/20"></div>
-              <a 
-                href="https://chetluru-srinivas-advocate.github.io/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 hover:text-white transition-colors"
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-800">
+        <div className="container-max py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © 2025 Chetluru Srinivas & Associates. All rights reserved.
+            </p>
+            <div className="flex space-x-6">
+              <Link
+                href="/privacy"
+                className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
-                Visit Website
-                <ExternalLink className="h-3 w-3" />
-              </a>
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
+              >
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

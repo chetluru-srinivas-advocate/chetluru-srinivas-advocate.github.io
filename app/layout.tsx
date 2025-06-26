@@ -1,44 +1,37 @@
 
 import type { Metadata } from 'next'
-import { Inter, Merriweather } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Toaster } from '@/components/ui/toaster'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
-
-const merriweather = Merriweather({
-  subsets: ['latin'],
-  weight: ['300', '400', '700', '900'],
-  variable: '--font-merriweather',
-})
 
 export const metadata: Metadata = {
-  title: 'Chetluru Srinivas & Associates - Expert Legal Counsel in Hyderabad',
-  description: 'Professional law firm in Hyderabad providing expert legal representation in civil law, criminal cases, corporate law, matrimonial disputes, and intellectual property. Serving clients since 1991.',
-  keywords: 'law firm Hyderabad, legal services, civil law, criminal law, corporate law, matrimonial disputes, intellectual property, Chetluru Srinivas',
+  title: 'Chetluru Srinivas & Associates - Expert Legal Counsel',
+  description: 'Professional law firm with 35+ years of experience in corporate law, civil litigation, criminal cases, and intellectual property. Serving clients across India with expertise and integrity.',
+  keywords: 'law firm, legal services, corporate law, civil litigation, criminal defense, intellectual property, Hyderabad lawyers, legal counsel',
   authors: [{ name: 'Chetluru Srinivas & Associates' }],
-  robots: 'index, follow',
   openGraph: {
     title: 'Chetluru Srinivas & Associates - Expert Legal Counsel',
-    description: 'Professional law firm providing comprehensive legal services in Hyderabad since 1991.',
-    type: 'website',
-    locale: 'en_IN',
+    description: 'Professional law firm with 35+ years of experience serving clients across India',
+    url: 'https://chetluru-srinivas-advocate.github.io',
     siteName: 'Chetluru Srinivas & Associates',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Chetluru Srinivas & Associates - Expert Legal Counsel',
-    description: 'Professional law firm providing comprehensive legal services in Hyderabad since 1991.',
+    description: 'Professional law firm with 35+ years of experience serving clients across India',
   },
-}
-
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({
@@ -47,17 +40,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${merriweather.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://chetluru-srinivas-advocate.github.io" />
+      </head>
+      <body suppressHydrationWarning={true}>
+        {children}
       </body>
     </html>
   )

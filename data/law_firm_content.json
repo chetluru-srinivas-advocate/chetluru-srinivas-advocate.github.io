@@ -1,0 +1,345 @@
+
+{
+  "reportDate": "2025-06-26",
+  "firmDetails": {
+    "name": "Chetluru Srinivas & Associates",
+    "tagline": "Expert Legal Counsel You Can Trust",
+    "since": 1991,
+    "description": "Chetluru Srinivas and Associates began its journey in 1991 and has been successfully operating in the legal field for over 35 years. The firm is a team of dedicated and intellectual professionals with expertise across various areas of law in India. Notably, the firm specializes in corporate law, land laws, civil disputes, criminal cases, including those under the Negotiable Instruments Act, Consumer Protection Act, Provident Fund Act, and matrimonial disputes.",
+    "statistics": [
+      {
+        "label": "Years of Experience",
+        "value": "35+"
+      },
+      {
+        "label": "Success Rate",
+        "value": "90%"
+      },
+      {
+        "label": "Expert Lawyers",
+        "value": "6"
+      },
+      {
+        "label": "Happy Clients",
+        "value": "500+"
+      },
+      {
+        "label": "Successful Cases",
+        "value": "500+"
+      },
+      {
+        "label": "Combined Years of Experience",
+        "value": "90+"
+      },
+      {
+        "label": "Areas of Legal Expertise",
+        "value": "10+"
+      }
+    ],
+    "whyChooseUs": [
+      "Handles cases under both the original and appellate jurisdictions of the High Court.",
+      "Maintains a success rate of 90% in the cases it files.",
+      "Committed to transparency, providing clients with a clear assessment of their case's strengths and weaknesses.",
+      "Strong emphasis on out-of-court settlements, advising clients on time and costs.",
+      "Aims to provide comprehensive legal solutions under one roof.",
+      "Offers expertise in patent registration and drafting through a registered patent and trademark agent."
+    ],
+    "copyright": "© 2025 Chetluru Srinivas & Associates. All rights reserved."
+  },
+  "practiceAreas": [
+    {
+      "name": "Civil Law",
+      "description": "Comprehensive civil law services including land litigation, land acquisition, declaration suits, and partition suits. Our experienced team handles complex civil matters with expertise and dedication.",
+      "services": [
+        "Land Litigation",
+        "Land acquisition",
+        "Declaration suits",
+        "Partition suits",
+        "Property disputes",
+        "Contract disputes",
+        "Civil appeals"
+      ]
+    },
+    {
+      "name": "Criminal Cases",
+      "description": "Expert criminal defense representation across all levels of courts. We handle serious criminal matters including CBI cases, PMLA violations, and criminal appeals with strategic defense approaches.",
+      "services": [
+        "CBI and ACB Cases",
+        "PMLA Act",
+        "Criminal Appeals",
+        "White collar crimes",
+        "Bail applications",
+        "Criminal trial defense"
+      ]
+    },
+    {
+      "name": "Corporate Law",
+      "description": "Comprehensive corporate legal services for businesses of all sizes. From company formation to complex corporate restructuring, we provide strategic legal counsel for corporate matters.",
+      "services": [
+        "Companies Act compliance",
+        "NCLT proceedings",
+        "Income Tax cases",
+        "Provident fund act matters",
+        "Corporate governance",
+        "Mergers and acquisitions"
+      ]
+    },
+    {
+      "name": "Matrimonial Disputes",
+      "description": "Sensitive and expert handling of family law matters with focus on amicable resolution. We provide compassionate legal support during difficult personal circumstances.",
+      "services": [
+        "Divorce proceedings",
+        "498a Cases defense",
+        "Maintenance and alimony",
+        "Domestic violence cases",
+        "Child custody matters",
+        "Mutual consent divorce"
+      ]
+    },
+    {
+      "name": "Banking and Finance",
+      "description": "Specialized legal services for banking and financial sector disputes. We represent both financial institutions and borrowers in debt recovery and banking law matters.",
+      "services": [
+        "Debt Recovery Tribunal (DRT) cases",
+        "SARFAESI Act proceedings",
+        "Banking law matters",
+        "Loan recovery",
+        "Financial regulations compliance"
+      ]
+    },
+    {
+      "name": "Arbitration",
+      "description": "Expert legal representation and consultation in arbitration proceedings. We provide strategic counsel for both domestic and international arbitration matters.",
+      "services": [
+        "Commercial arbitration",
+        "Construction arbitration",
+        "International arbitration",
+        "Arbitration awards enforcement",
+        "Alternative dispute resolution"
+      ]
+    },
+    {
+      "name": "Consumer Protection Cases",
+      "description": "Expert legal representation and consultation in consumer protection cases. We fight for consumer rights and fair business practices.",
+      "services": [
+        "Consumer complaints",
+        "Product liability cases",
+        "Service deficiency matters",
+        "Unfair trade practices",
+        "Consumer forum representation"
+      ]
+    },
+    {
+      "name": "Intellectual Property",
+      "description": "Comprehensive intellectual property services including patent prosecution, trademark registration, and IP litigation. Our registered patent agent provides expert IP counsel.",
+      "services": [
+        "Patent prosecution",
+        "Trademark registration",
+        "Design registration",
+        "Copyright protection",
+        "IP litigation",
+        "Trade secret protection"
+      ]
+    },
+    {
+      "name": "Negotiable Instruments",
+      "description": "Expert handling of negotiable instruments cases including dishonor of cheques and payment system disputes.",
+      "services": [
+        "Negotiable Instruments Act cases",
+        "Cheque bounce cases",
+        "Payment and Settlement Systems Act matters",
+        "Recovery through NI Act"
+      ]
+    },
+    {
+      "name": "Drafting and Documentation",
+      "description": "Professional legal drafting services for all types of agreements, contracts, and legal documents with precision and attention to detail.",
+      "services": [
+        "Contract drafting",
+        "Legal agreements",
+        "Will and testament drafting",
+        "Deed of assignment",
+        "Legal documentation",
+        "Agreement review"
+      ]
+    }
+  ],
+  "advocates": [
+    {
+      "name": "Chetluru Srinivas",
+      "title": "Founder & Senior Advocate",
+      "isFounder": true,
+      "experienceYears": "35+",
+      "industryExperienceYears": null,
+      "education": [
+        "Bachelor of Arts (B.A.)",
+        "Bachelor of Laws (LL.B)"
+      ],
+      "specializations": [
+        "Corporate Law",
+        "Civil Litigation",
+        "High Court Practice",
+        "Appellate Advocacy"
+      ],
+      "email": "chetluru2025@gmail.com",
+      "registration": null,
+      "bio": "Chetluru Srinivas is the founder and senior advocate of the firm, bringing over 35 years of extensive legal experience. Having established the practice in 1991, he has built a reputation for exceptional legal acumen and strategic case handling. His expertise spans corporate law and civil litigation, with particular strength in High Court practice under both original and appellate jurisdictions. Mr. Srinivas is known for his transparent approach to client counseling and his commitment to achieving favorable outcomes through both litigation and out-of-court settlements."
+    },
+    {
+      "name": "Kiran Kumar Tirunahari",
+      "title": "Senior Associate",
+      "isFounder": false,
+      "experienceYears": "25+",
+      "industryExperienceYears": null,
+      "education": [
+        "Bachelor of Laws (LL.B)"
+      ],
+      "specializations": [
+        "Civil Law",
+        "Criminal Law",
+        "Litigation Management",
+        "Legal Research"
+      ],
+      "email": null,
+      "registration": null,
+      "bio": "Kiran Kumar Tirunahari is a senior associate with over 25 years of legal practice experience. He brings deep expertise in both civil and criminal law matters, providing comprehensive legal solutions to clients. His extensive experience in litigation management and legal research makes him an invaluable asset to the firm's practice. Mr. Tirunahari is known for his meticulous attention to detail and strategic approach to complex legal matters."
+    },
+    {
+      "name": "P.Vijaya Saradhi",
+      "title": "Advocate",
+      "isFounder": false,
+      "experienceYears": "23+",
+      "industryExperienceYears": null,
+      "education": [
+        "Bachelor of Laws (LL.B)"
+      ],
+      "specializations": [
+        "Civil Law",
+        "Criminal Law",
+        "Family Law",
+        "Matrimonial Disputes"
+      ],
+      "email": null,
+      "registration": null,
+      "bio": "P. Vijaya Saradhi is an experienced advocate with over 23 years of practice in civil, criminal, and family law. He specializes in handling sensitive matrimonial disputes and family law matters with a compassionate yet strategic approach. His expertise in civil and criminal law allows him to provide comprehensive legal representation across diverse legal challenges. Mr. Saradhi is particularly known for his ability to handle complex family disputes with sensitivity and professional excellence."
+    },
+    {
+      "name": "Yajur Putta",
+      "title": "Advocate",
+      "isFounder": false,
+      "experienceYears": "6+",
+      "industryExperienceYears": null,
+      "education": [
+        "BBA LLB (Hons.)",
+        "Master of Business Administration (M.B.A.)"
+      ],
+      "specializations": [
+        "Corporate Law",
+        "Business Law",
+        "Commercial Litigation",
+        "Contract Law"
+      ],
+      "email": null,
+      "registration": null,
+      "bio": "Yajur Putta brings a unique combination of legal and business expertise to the firm with over 6 years of practice experience. His educational background in both law and business administration provides him with a comprehensive understanding of corporate and commercial legal matters. Mr. Putta specializes in corporate law, business law, and commercial litigation, offering clients strategic legal counsel that considers both legal and business implications of their decisions."
+    },
+    {
+      "name": "K.S.Kushal",
+      "title": "Advocate",
+      "isFounder": false,
+      "experienceYears": "4+",
+      "industryExperienceYears": null,
+      "education": [
+        "BBA LLB (Hons.)",
+        "Post Graduate Diploma in Intellectual Property Rights"
+      ],
+      "specializations": [
+        "Intellectual Property Law",
+        "Corporate Law",
+        "Commercial Law",
+        "Legal Research"
+      ],
+      "email": null,
+      "registration": null,
+      "bio": "K.S. Kushal is a dynamic advocate with over 4 years of experience and specialized expertise in intellectual property rights. His post-graduate diploma in IPR, combined with his legal degree, makes him particularly valuable for clients seeking protection and enforcement of their intellectual property assets. Mr. Kushal's practice encompasses corporate law, commercial law, and legal research, bringing fresh perspectives and innovative approaches to complex legal challenges."
+    },
+    {
+      "name": "Challa Vimalanand",
+      "title": "IP Law Specialist, Advocate & Patent Agent",
+      "isFounder": false,
+      "experienceYears": null,
+      "industryExperienceYears": "12+",
+      "education": [
+        "Technical Background in Engineering",
+        "Legal Qualification"
+      ],
+      "specializations": [
+        "Patent Prosecution",
+        "Trademark Registration",
+        "Design Registration",
+        "Copyright Law",
+        "IP Litigation",
+        "Technology Transfer",
+        "IP Portfolio Management"
+      ],
+      "email": "challavimalanand@gmail.com",
+      "registration": "IN/PA 6235",
+      "bio": "Challa Vimalanand is a registered Patent Agent (IN/PA 6235) and intellectual property law specialist with over 12 years of industry experience. His unique combination of technical and legal expertise makes him exceptionally qualified to handle complex intellectual property matters. Mr. Vimalanand specializes in patent prosecution, trademark registration, and comprehensive IP portfolio management. His technical background enables him to understand complex innovations and provide strategic IP counsel to inventors, startups, and established corporations."
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Chetluru Srinivas handled my property dispute with exceptional professionalism. Their thorough understanding of civil law and strategic approach led to a favorable settlement that exceeded my expectations.",
+      "clientName": "Rajesh Kumar",
+      "caseType": "Property Dispute Client"
+    }
+  ],
+  "contactInfo": {
+    "address": {
+      "street": "#6-3-248/K, Flat No:G2, Abhishek Residency, Banjara Hills, Road No. 1",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "postalCode": "500034"
+    },
+    "phone": "+91 9848022338",
+    "emergencyPhone": "+91 9848022338",
+    "email": "chetluru2025@gmail.com",
+    "officeHours": [
+      {
+        "days": "Monday - Friday",
+        "hours": "9:00 AM - 6:00 PM"
+      },
+      {
+        "days": "Saturday",
+        "hours": "9:00 AM - 2:00 PM"
+      },
+      {
+        "days": "Sunday",
+        "hours": "Closed"
+      }
+    ],
+    "contactFormFields": [
+      {
+        "name": "fullName",
+        "label": "Full Name",
+        "type": "text"
+      },
+      {
+        "name": "phoneNumber",
+        "label": "Phone Number",
+        "type": "tel"
+      },
+      {
+        "name": "emailAddress",
+        "label": "Email Address",
+        "type": "email"
+      },
+      {
+        "name": "message",
+        "label": "Message",
+        "type": "textarea"
+      }
+    ]
+  }
+}

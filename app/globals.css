@@ -1,91 +1,188 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lato:wght@300;400;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 248 249 250;
-    --foreground: 52 58 64;
-    --card: 255 255 255;
-    --card-foreground: 52 58 64;
-    --popover: 255 255 255;
-    --popover-foreground: 52 58 64;
-    --primary: 10 35 66;
-    --primary-foreground: 255 255 255;
-    --secondary: 44 93 146;
-    --secondary-foreground: 255 255 255;
-    --muted: 248 249 250;
-    --muted-foreground: 107 114 128;
-    --accent: 164 189 228;
-    --accent-foreground: 52 58 64;
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
-    --border: 229 231 235;
-    --input: 229 231 235;
-    --ring: 164 189 228;
-    --radius: 0.5rem;
-  }
+:root {
+  --primary-dark-blue: #0A2463;
+  --secondary-medium-blue: #3E92CC;
+  --background-grey-white: #F8F9FA;
+  --text-dark-grey: #343A40;
+  --light-blue: #E3F2FD;
+  --accent-blue: #2196F3;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground font-sans;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
-  }
-}
-
-@layer components {
-  .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-  }
-  
-  .section-padding {
-    @apply py-16 lg:py-24;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1;
-  }
-  
-  .btn-primary {
-    @apply bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-200 inline-flex items-center gap-2;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-200 inline-flex items-center gap-2;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
-  }
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+body {
+  font-family: 'Lato', sans-serif;
+  color: var(--text-dark-grey);
+  background-color: var(--background-grey-white);
+  line-height: 1.6;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  color: var(--primary-dark-blue);
+  font-weight: 700;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.2;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+h2 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, var(--primary-dark-blue) 0%, var(--secondary-medium-blue) 100%);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(10, 36, 99, 0.15);
+}
+
+.btn-primary {
+  background: var(--secondary-medium-blue);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(10, 36, 99, 0.2);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.container-max {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+  
+  h1 {
+    font-size: 1.875rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--secondary-medium-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.testimonial-card {
+  background: white;
+  border-left: 4px solid var(--secondary-medium-blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.practice-area-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.team-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(10, 36, 99, 0.15);
+}
+
+.stats-counter {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--secondary-medium-blue);
+  font-family: 'Merriweather', serif;
+}
+
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
