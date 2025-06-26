@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Scale, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
@@ -121,20 +120,6 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               © 2025 Chetluru Srinivas & Associates. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <Link
-                href="/privacy"
-                className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </div>
