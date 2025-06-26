@@ -28,10 +28,6 @@
         "value": "500+"
       },
       {
-        "label": "Combined Years of Experience",
-        "value": "90+"
-      },
-      {
         "label": "Areas of Legal Expertise",
         "value": "10+"
       }
@@ -149,18 +145,6 @@
         "Cheque bounce cases",
         "Payment and Settlement Systems Act matters",
         "Recovery through NI Act"
-      ]
-    },
-    {
-      "name": "Drafting and Documentation",
-      "description": "Professional legal drafting services for all types of agreements, contracts, and legal documents with precision and attention to detail.",
-      "services": [
-        "Contract drafting",
-        "Legal agreements",
-        "Will and testament drafting",
-        "Deed of assignment",
-        "Legal documentation",
-        "Agreement review"
       ]
     }
   ],
@@ -296,23 +280,20 @@
   ],
   "contactInfo": {
     "address": {
-      "street": "#6-3-248/K, Flat No:G2, Abhishek Residency, Banjara Hills, Road No. 1",
+      "street1": "#6-3-248/K, Flat No:G2, Abhishek Residency",
+      "street2": "Banjara Hills, Road No. 1",
       "city": "Hyderabad",
       "state": "Telangana",
       "country": "India",
       "postalCode": "500034"
     },
-    "phone": "+91 9848022338",
-    "emergencyPhone": "+91 9848022338",
+    "phone": "+91 9440222300",
+    "emergencyPhone": "+91 9440222300",
     "email": "chetluru2025@gmail.com",
     "officeHours": [
       {
-        "days": "Monday - Friday",
-        "hours": "9:00 AM - 6:00 PM"
-      },
-      {
-        "days": "Saturday",
-        "hours": "9:00 AM - 2:00 PM"
+        "days": "Monday - Saturday",
+        "hours": "10:00 AM - 6:00 PM"
       },
       {
         "days": "Sunday",

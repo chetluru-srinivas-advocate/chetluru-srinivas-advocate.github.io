@@ -4,7 +4,8 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 interface ContactInfo {
   address: {
-    street: string;
+    street1: string;
+    street2: string;
     city: string;
     state: string;
     country: string;
@@ -35,95 +36,99 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-gray-600 mb-8">
-                Contact us today to schedule a consultation. We're here to help you navigate 
-                your legal challenges with expertise and dedication.
-              </p>
-            </div>
-
-            {/* Address */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Office Address</h4>
-                <p className="text-gray-600 leading-relaxed">
-                  {contactInfo?.address?.street}<br />
-                  {contactInfo?.address?.city}, {contactInfo?.address?.state} {contactInfo?.address?.postalCode}<br />
-                  {contactInfo?.address?.country}
-                </p>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Phone className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Phone Number</h4>
-                <a
-                  href={`tel:${contactInfo?.phone}`}
-                  className="text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  {contactInfo?.phone}
-                </a>
-                {contactInfo?.emergencyPhone && contactInfo.emergencyPhone !== contactInfo.phone && (
-                  <p className="text-gray-600 text-sm mt-1">
-                    Emergency: {contactInfo.emergencyPhone}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Left Column */}
+            <div className="space-y-8">
+              {/* Address */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Office Address</h4>
+                  <p className="text-gray-600 leading-relaxed">
+                    {contactInfo?.address?.street1}<br />
+                    {contactInfo?.address?.street2}<br />
+                    {contactInfo?.address?.city}, {contactInfo?.address?.state}, {contactInfo?.address?.postalCode}<br />
+                    {contactInfo?.address?.country}
                   </p>
-                )}
+                </div>
               </div>
-            </div>
 
-            {/* Email */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Mail className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Email Address</h4>
-                <a
-                  href={`mailto:${contactInfo?.email}`}
-                  className="text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  {contactInfo?.email}
-                </a>
-              </div>
-            </div>
-
-            {/* Office Hours */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Clock className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Office Hours</h4>
-                <div className="space-y-1">
-                  {contactInfo?.officeHours?.map((schedule, index) => (
-                    <div key={index} className="flex justify-between text-gray-600">
-                      <span className="font-medium">{schedule.days}:</span>
-                      <span>{schedule.hours}</span>
-                    </div>
-                  ))}
+              {/* Phone */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Phone Number</h4>
+                  <a
+                    href={`tel:${contactInfo?.phone}`}
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    {contactInfo?.phone}
+                  </a>
+                  {contactInfo?.emergencyPhone && contactInfo.emergencyPhone !== contactInfo.phone && (
+                    <p className="text-gray-600 text-sm mt-1">
+                      Emergency: {contactInfo.emergencyPhone}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <MapPin className="w-12 h-12 mx-auto mb-2" />
-                <p>Interactive Map Coming Soon</p>
-                <p className="text-sm">Banjara Hills, Hyderabad</p>
+            {/* Right Column */}
+            <div className="space-y-8">
+              {/* Email */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Email Address</h4>
+                  <a
+                    href={`mailto:${contactInfo?.email}`}
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    {contactInfo?.email}
+                  </a>
+                </div>
+              </div>
+
+              {/* Office Hours */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Office Hours</h4>
+                  <div className="space-y-1">
+                    {contactInfo?.officeHours?.map((schedule, index) => (
+                      <div key={index} className="flex justify-between text-gray-600">
+                        <span className="font-medium">{schedule.days}:</span>
+                        <span>{schedule.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Map - Google Maps Embed */}
+          <div className="mt-12">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7614.095854283244!2d78.44606468320032!3d17.409487459594366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9738c73e379f%3A0xda17483d8b6b4e3e!2sChetluru%20Sreenivas%20%26%20Associates!5e0!3m2!1sen!2sus!4v1750911998236!5m2!1sen!2sus" 
+              width="100%" 
+              height="450" 
+              style={{border: 0}} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-xl"
+            />
           </div>
         </div>
       </div>
