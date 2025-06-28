@@ -36,19 +36,9 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
     return () => observer.disconnect();
   }, []);
 
-  // Sample additional testimonials to showcase the firm's expertise
+
   const allTestimonials = [
-    ...testimonials,
-    {
-      quote: "The team's expertise in corporate law helped us navigate complex regulatory requirements seamlessly. Their strategic guidance was invaluable for our business expansion.",
-      clientName: "Priya Sharma",
-      caseType: "Corporate Law Client"
-    },
-    {
-      quote: "Professional, knowledgeable, and compassionate. They handled my family law matter with sensitivity while achieving the best possible outcome for my case.",
-      clientName: "Amit Reddy",
-      caseType: "Family Law Client"
-    }
+    ...testimonials
   ];
 
   return (
