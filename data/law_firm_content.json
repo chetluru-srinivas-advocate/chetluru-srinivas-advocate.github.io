@@ -158,6 +158,7 @@
         "Appellate Advocacy"
       ],
       "email": "chetluru2025@gmail.com",
+      "phone": "+91 9440222300",
       "registration": null,
       "bio": "Chetluru Srinivas is the founder and senior advocate of the firm, bringing over 35 years of extensive legal experience. Having established the practice in 1991, he has built a reputation for exceptional legal acumen and strategic case handling. His expertise spans corporate law and civil litigation, with particular strength in High Court practice under both original and appellate jurisdictions. Mr. Srinivas is known for his transparent approach to client counseling and his commitment to achieving favorable outcomes through both litigation and out-of-court settlements."
     },
@@ -176,28 +177,30 @@
         "Litigation Management",
         "Legal Research"
       ],
-      "email": null,
+      "email":"kirantirunahari@gmail.com",
+      "phone": "+91 9848417450",
       "registration": null,
       "bio": "Kiran Kumar Tirunahari is a senior associate with over 25 years of legal practice experience. He brings deep expertise in both civil and criminal law matters, providing comprehensive legal solutions to clients. His extensive experience in litigation management and legal research makes him an invaluable asset to the firm's practice. Mr. Tirunahari is known for his meticulous attention to detail and strategic approach to complex legal matters."
     },
     {
-      "name": "P.Vijaya Saradhi",
+      "name": "Vijaya Saradhi Penubarthi",
       "title": "Advocate",
       "isFounder": false,
       "experienceYears": "23+",
       "industryExperienceYears": null,
       "education": [
-        "Bachelor of Laws (LL.B)"
+        "B.Com, LL.B"
       ],
       "specializations": [
         "Civil Law",
         "Criminal Law",
-        "Family Law",
+        "Negotiable Instruments Act",
         "Matrimonial Disputes"
       ],
-      "email": null,
+      "email": "vijayspadv@gmail.com",
+      "phone": "+91 9989012670",
       "registration": null,
-      "bio": "P. Vijaya Saradhi is an experienced advocate with over 23 years of practice in civil, criminal, and family law. He specializes in handling sensitive matrimonial disputes and family law matters with a compassionate yet strategic approach. His expertise in civil and criminal law allows him to provide comprehensive legal representation across diverse legal challenges. Mr. Saradhi is particularly known for his ability to handle complex family disputes with sensitivity and professional excellence."
+      "bio": "Vijaya Saradhi Penubarthi is an experienced advocate with over 23 years of practice in civil, criminal, and family law. He specializes in handling sensitive matrimonial disputes and family law matters with a compassionate yet strategic approach. His expertise in civil and criminal law allows him to provide comprehensive legal representation across diverse legal challenges. Mr. Saradhi is particularly known for his ability to handle complex disputes with sensitivity and professional excellence."
     },
     {
       "name": "Yajur Putta",
@@ -215,7 +218,8 @@
         "Commercial Litigation",
         "Contract Law"
       ],
-      "email": null,
+      "email": "yajuradv@gmail.com",
+      "phone": "+91 7386376374",
       "registration": null,
       "bio": "Yajur Putta brings a unique combination of legal and business expertise to the firm with over 6 years of practice experience. His educational background in both law and business administration provides him with a comprehensive understanding of corporate and commercial legal matters. Mr. Putta specializes in corporate law, business law, and commercial litigation, offering clients strategic legal counsel that considers both legal and business implications of their decisions."
     },
@@ -235,7 +239,8 @@
         "Commercial Law",
         "Legal Research"
       ],
-      "email": null,
+      "email": "kushal1707@gmail.com",
+      "phone": "+91 7981859953",
       "registration": null,
       "bio": "K.S. Kushal is a dynamic advocate with over 4 years of experience and specialized expertise in intellectual property rights. His post-graduate diploma in IPR, combined with his legal degree, makes him particularly valuable for clients seeking protection and enforcement of their intellectual property assets. Mr. Kushal's practice encompasses corporate law, commercial law, and legal research, bringing fresh perspectives and innovative approaches to complex legal challenges."
     },
@@ -259,6 +264,7 @@
         "IP Portfolio Management"
       ],
       "email": "challavimalanand@gmail.com",
+      "phone": "+91 9492030822",
       "registration": "IN/PA 6235",
       "bio": "Challa Vimalanand is a registered Patent Agent (IN/PA 6235) and intellectual property law specialist with over 12 years of industry experience. His unique combination of technical and legal expertise makes him exceptionally qualified to handle complex intellectual property matters. Mr. Vimalanand specializes in patent prosecution, trademark registration, and comprehensive IP portfolio management. His technical background enables him to understand complex innovations and provide strategic IP counsel to inventors, startups, and established corporations."
     }
