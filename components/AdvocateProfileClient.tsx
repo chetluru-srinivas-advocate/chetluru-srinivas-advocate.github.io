@@ -14,6 +14,7 @@ interface Advocate {
   education: string[];
   specializations: string[];
   email?: string | null;
+  phone?: string | null;
   registration?: string | null;
   bio?: string | null;
 }
@@ -229,18 +230,13 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
                 </div>
                 <div className="pt-4 border-t border-blue-800 mt-4 sm:mt-6">
                   <a
-                    href="tel:+919440222300"
+                    href={`tel:${advocate.phone}`}
                     className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors mb-3 text-sm sm:text-base"
                   >
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span>+91 9440222300</span>
+                    <span>{advocate.phone}</span>
                   </a>
-                  <Link
-                    href="/#contact"
-                    className="btn-primary w-full bg-blue-600 hover:bg-blue-500 text-sm sm:text-base"
-                  >
-                    Contact {advocate.name}
-                  </Link>
+
                 </div>
               </div>
             </div>
