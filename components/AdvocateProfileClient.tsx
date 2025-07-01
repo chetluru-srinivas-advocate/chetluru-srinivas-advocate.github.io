@@ -144,7 +144,7 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
                       </div>
                       {/* Notable Judgments & Cases */}
                       <div className="mt-6 sm:mt-8">
-                        <h4 className="font-semibold text-blue-900 text-sm sm:text-base mb-2">Notable Judgments & Cases</h4>
+                        <h4 className="font-semibold text-blue-900 text-sm sm:text-base mb-2">Reportable Judgments & Cases</h4>
                         <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-blue-800">
                           <li><a href="https://www.casemine.com/judgement/in/63542b3d5358106ecd0d9605" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">CaseMine: Telangana High Court Judgment (2022)</a></li>
                           <li><a href="https://www.scconline.com/blog/post/2023/09/02/telangana-high-court-discusses-power-to-decide-suit-title-under-article-226-proceedings/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">SCC Online: Power to Decide Suit Title under Article 226 (2023)</a></li>
