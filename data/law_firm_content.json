@@ -17,15 +17,15 @@
       },
       {
         "label": "Expert Lawyers",
-        "value": "6"
+        "value": "10"
       },
       {
         "label": "Happy Clients",
-        "value": "500+"
+        "value": "2000+"
       },
       {
         "label": "Successful Cases",
-        "value": "500+"
+        "value": "2000+"
       },
       {
         "label": "Areas of Legal Expertise",
@@ -154,13 +154,20 @@
       "specializations": [
         "Corporate Law",
         "Civil Litigation",
-        "High Court Practice",
-        "Appellate Advocacy"
+        "High Court Practice - Original and Appellate Jurisdictions",
+        "Arbitration",
+        "Crimial Cases",
+        "Matrimonial Disputes",
+        "Negotiable Instruments Act",
+        "Land Aquisition Matters",
+        "Consumer Protection Act",
+        "Provident Fund Act Matters",
+        "Election Matters"        
       ],
       "email": "chetluru2025@gmail.com",
       "phone": "+91 9440222300",
       "registration": null,
-      "bio": "Chetluru Srinivas is the founder and senior advocate of the firm, bringing over 35 years of extensive legal experience. Having established the practice in 1991, he has built a reputation for exceptional legal acumen and strategic case handling. His expertise spans corporate law and civil litigation, with particular strength in High Court practice under both original and appellate jurisdictions. Mr. Srinivas is known for his transparent approach to client counseling and his commitment to achieving favorable outcomes through both litigation and out-of-court settlements."
+      "bio": "Chetluru Srinivas is the founder and senior advocate of the firm, bringing over 35 years of extensive legal experience. Having established the practice in 1991, he has built a reputation for exceptional legal acumen and strategic case handling. His expertise spans corporate law, civil litigation and Arbitration matters, with particular strength in High Court practice - both original and appellate jurisdictions. Mr. Srinivas is known for his transparent approach to client counseling and his commitment in achieving favorable outcomes through both litigation and out-of-court settlements.He is the Panle member for the cases of Election Commission of India to represent in High court of Telangana."
     },
     {
       "name": "Kiran Kumar Tirunahari",
@@ -290,7 +297,7 @@
   "contactInfo": {
     "address": {
       "street1": "#6-3-248/K, Flat No:G2, Abhishek Residency",
-      "street2": "Banjara Hills, Road No. 1",
+      "street2": "Banjara Hills, Road No. 1, Near Virinchi Hospital",
       "city": "Hyderabad",
       "state": "Telangana",
       "country": "India",
@@ -302,7 +309,7 @@
     "officeHours": [
       {
         "days": "Monday - Saturday",
-        "hours": "10:00 AM - 6:00 PM"
+        "hours": "10:00 AM - 7:00 PM"
       },
       {
         "days": "Sunday",
