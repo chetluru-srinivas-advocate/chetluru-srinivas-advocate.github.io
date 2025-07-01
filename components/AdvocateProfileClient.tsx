@@ -136,35 +136,26 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
                   </div>
                   {/* Election Commission Appointment (only for Chetluru Srinivas) */}
                   {advocate.name.toLowerCase().includes('chetluru') && (
-                    <div className="mt-6 sm:mt-8 flex flex-col items-center">
-                      <img
-                        src="/awards/eci.jpg"
-                        alt="Appointment by Election Commission of India"
-                        className="rounded-xl shadow-lg max-w-xs w-full border border-blue-200 cursor-zoom-in transition-transform hover:scale-105"
-                        onClick={() => setEciModalOpen(true)}
-                      />
-                      <p className="mt-3 sm:mt-4 text-center text-blue-900 font-semibold text-xs sm:text-sm">
-                        Appointed as Election Commission of India's Senior Counsel in Telangana
-                      </p>
-                      {isEciModalOpen && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4" onClick={() => setEciModalOpen(false)}>
-                          <div className="relative" onClick={e => e.stopPropagation()}>
-                            <img
-                              src="/awards/eci.jpg"
-                              alt="Appointment by Election Commission of India"
-                              className="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl border-4 border-white"
-                            />
-                            <button
-                              onClick={() => setEciModalOpen(false)}
-                              className="absolute top-2 right-2 bg-white bg-opacity-80 hover:bg-opacity-100 text-blue-900 rounded-full p-2 shadow-lg"
-                              aria-label="Close"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                    <>
+                      <div className="mt-6 sm:mt-8 flex flex-col items-center">
+                        <p className="mt-3 sm:mt-4 text-center text-blue-900 font-semibold text-xs sm:text-sm">
+                          Appointed as Election Commission of India's Senior Counsel in Telangana
+                        </p>
+                      </div>
+                      {/* Notable Judgments & Cases */}
+                      <div className="mt-6 sm:mt-8">
+                        <h4 className="font-semibold text-blue-900 text-sm sm:text-base mb-2">Notable Judgments & Cases</h4>
+                        <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-blue-800">
+                          <li><a href="https://www.casemine.com/judgement/in/63542b3d5358106ecd0d9605" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">CaseMine: Telangana High Court Judgment (2022)</a></li>
+                          <li><a href="https://www.scconline.com/blog/post/2023/09/02/telangana-high-court-discusses-power-to-decide-suit-title-under-article-226-proceedings/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">SCC Online: Power to Decide Suit Title under Article 226 (2023)</a></li>
+                          <li><a href="https://indiankanoon.org/doc/173486172/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Indian Kanoon: Telangana High Court Judgment</a></li>
+                          <li><a href="https://www.casemine.com/judgement/in/61857c409fca196bd40b0998/amp" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">CaseMine: Telangana High Court Judgment (2021)</a></li>
+                          <li><a href="https://lextechsuite.com/Ms-Visweswara-Infrastructure-Pvt-Ltd-and-Others-Versus-The-Telangana-State-Industrial-Infrastructure-Corporation-Ltd-Telangana-Rep-by-its-Chairman-and-Others-2023-08-24#google_vignette" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">LexTechSuite: Ms Visweswara Infrastructure Pvt Ltd v. TSIIC (2023)</a></li>
+                          <li><a href="https://www.casemine.com/judgement/in/5dc070cf3321bc77c50827be" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">CaseMine: Telangana High Court Judgment (2019)</a></li>
+                          <li><a href="https://www.courtkutchehry.com/Judgement/Search/t/933267-pathlavath-bichya-and-others-appellant" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">CourtKutchehry: Pathlavath Bichya & Others</a></li>
+                        </ul>
+                      </div>
+                    </>
                   )}
                 </div>
 
