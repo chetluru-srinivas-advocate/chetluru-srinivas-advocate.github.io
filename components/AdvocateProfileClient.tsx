@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Award, Scale, GraduationCap, Phone } from 'lucide-react';
+import { Award, Scale, GraduationCap, Phone, MessageCircle } from 'lucide-react';
 import Breadcrumb from './ui/breadcrumb';
 
 interface Advocate {
@@ -227,6 +227,19 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>{advocate.phone}</span>
                   </a>
+                  
+                  {/* WhatsApp link for Vimalanand */}
+                  {advocate.name.toLowerCase().includes('vimalanand') && advocate.phone && (
+                    <a
+                      href={`https://wa.me/${advocate.phone.replace(/\D/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors text-sm sm:text-base"
+                    >
+                      <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>WhatsApp</span>
+                    </a>
+                  )}
 
                 </div>
               </div>
