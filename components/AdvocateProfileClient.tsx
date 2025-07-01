@@ -220,16 +220,8 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
                   )}
                 </div>
                 <div className="pt-4 border-t border-blue-800 mt-4 sm:mt-6">
-                  <a
-                    href={`tel:${advocate.phone}`}
-                    className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors mb-3 text-sm sm:text-base"
-                  >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span>{advocate.phone}</span>
-                  </a>
-                  
-                  {/* WhatsApp link for Vimalanand */}
-                  {advocate.name.toLowerCase().includes('vimalanand') && advocate.phone && (
+                  {/* For Vimalanand, show only WhatsApp */}
+                  {advocate.name.toLowerCase().includes('vimalanand') && advocate.phone ? (
                     <a
                       href={`https://wa.me/${advocate.phone.replace(/\D/g, '')}`}
                       target="_blank"
@@ -239,8 +231,15 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
                       <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                       <span>WhatsApp</span>
                     </a>
+                  ) : (
+                    <a
+                      href={`tel:${advocate.phone}`}
+                      className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors mb-3 text-sm sm:text-base"
+                    >
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Contact</span>
+                    </a>
                   )}
-
                 </div>
               </div>
             </div>
