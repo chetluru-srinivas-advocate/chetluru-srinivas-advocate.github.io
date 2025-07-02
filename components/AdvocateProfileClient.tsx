@@ -29,7 +29,7 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
   const getAdvocateImage = (advocateName: string) => {
     const name = advocateName.toLowerCase();
     if (name.includes('chetluru') || name.includes('srinivas')) {
-      return '/images/chetluru_srinivas_optimized.jpg';
+      return '/images/chetlu_2.jpg';
     }
     if (name.includes('vijay')) {
       return '/images/Vijay_1.jpg';
@@ -41,12 +41,12 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
       return '/images/vimalanand_optimized.jpg';
     }
     if (name.includes('yajur')) {
-      return '/images/yajur_3.jpg';
+      return '/images/yajur.jpg';
     }
     if (name.includes('kushal')) {
-      return '/images/Kushal_2.jpg';
+      return '/images/kushal.jpg';
     }
-    return '/images/chetluru_srinivas_optimized.jpg';
+    return '/images/chetlu_2.jpg';
   };
 
   const breadcrumbItems = [
