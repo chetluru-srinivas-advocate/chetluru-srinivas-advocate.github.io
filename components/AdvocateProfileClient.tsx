@@ -41,10 +41,10 @@ export default function AdvocateProfileClient({ advocate }: { advocate: Advocate
       return '/images/vimalanand_optimized.jpg';
     }
     if (name.includes('yajur')) {
-      return '/images/vakil2_optimized.jpg';
+      return '/images/yajur_3.jpg';
     }
     if (name.includes('kushal')) {
-      return '/images/vakil2_optimized.jpg';
+      return '/images/Kushal_2.jpg';
     }
     return '/images/chetluru_srinivas_optimized.jpg';
   };
