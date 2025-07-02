@@ -58,7 +58,7 @@ export default function TeamSection({ advocates }: TeamSectionProps) {
     
     // Map advocate names to their image files
     if (name.includes('chetluru') || name.includes('srinivas')) {
-      return '/images/chetluru_srinivas_optimized.jpg';
+      return '/images/chetlu_2.jpg';
     }
     if (name.includes('vijay')) {
       return '/images/Vijay_1.jpg';
@@ -70,14 +70,14 @@ export default function TeamSection({ advocates }: TeamSectionProps) {
       return '/images/vimalanand_optimized.jpg';
     }
     if (name.includes('yajur')) {
-      return '/images/yajur_3.jpg';
+      return '/images/yajur.jpg';
     }
     if (name.includes('kushal')) {
-      return '/images/Kushal_2.jpg';
+      return '/images/kushal.jpg';
     }
     
     // Default fallback image
-    return '/images/chetluru_srinivas_optimized.jpg';
+    return '/images/chetlu_2.jpg';
   };
 
   return (

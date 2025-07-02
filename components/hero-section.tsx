@@ -100,7 +100,7 @@ export default function HeroSection({ firmName, tagline, description, statistics
             <div className="relative">
               <div className="relative w-full h-64 sm:h-80 lg:h-[500px] rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm">
                 <Image
-                  src="/images/chetluru_srinivas_optimized.jpg"
+                  src="/images/chetlu.jpg"
                   alt="Chetluru Srinivas - Founder & Senior Advocate in Hyderabad - Expert Corporate and Civil Litigation Lawyer"
                   fill
                   className="object-cover"
