@@ -67,7 +67,7 @@ export default function HeroSection({ firmName, tagline, description, statistics
               <div className="text-xs sm:text-sm text-blue-200 space-y-1">
                 <p><strong>📍 Location:</strong> Banjara Hills, Hyderabad, Telangana</p>
                 <p><strong>⚖️ Specializations:</strong> Corporate Law, Civil Litigation, Criminal Cases, IP Law</p>
-                <p><strong>👨‍⚖️ Founder:</strong> Chetluru Srinivas - Senior Advocate with 35+ Years Experience</p>
+                <p><strong>👨‍⚖️ Founder:</strong> Chetluru Srinivas - Senior Advocate with 34+ Years Experience</p>
               </div>
             </div>
 
@@ -112,7 +112,7 @@ export default function HeroSection({ firmName, tagline, description, statistics
                     <span itemProp="name">Chetluru Srinivas</span>
                   </h3>
                   <p className="text-blue-100 text-sm sm:text-base" itemProp="jobTitle">Founder & Senior Advocate</p>
-                  <p className="text-blue-200 text-xs sm:text-sm">35+ Years of Legal Excellence in Hyderabad</p>
+                  <p className="text-blue-200 text-xs sm:text-sm">34+ Years of Legal Excellence in Hyderabad</p>
                   <p className="text-blue-200 text-xs mt-1">📍 Banjara Hills, Hyderabad, Telangana</p>
                 </div>
               </div>
