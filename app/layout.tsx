@@ -3,8 +3,8 @@ import './globals.css'
 import DisclaimerProvider from '../components/disclaimer-provider'
 
 export const metadata: Metadata = {
-  title: 'Chetluru Srinivas & Associates - Top Lawyers in Hyderabad | 35+ Years Experience',
-  description: 'Leading law firm in Hyderabad with 35+ years of experience. Expert advocates for corporate law, civil litigation, criminal cases, IP law, and family disputes. Chetluru Srinivas & Associates - Trusted legal counsel in Telangana.',
+  title: 'Chetluru Srinivas & Associates - Top Lawyers in Hyderabad | 34+ Years Experience',
+  description: 'Leading law firm in Hyderabad with 34+ years of experience. Expert advocates for corporate law, civil litigation, criminal cases, IP law, and family disputes. Chetluru Srinivas & Associates - Trusted legal counsel in Telangana.',
   keywords: 'Chetluru Srinivas, advocates in Hyderabad, lawyers Hyderabad, law firm Hyderabad, corporate lawyers Hyderabad, civil litigation Hyderabad, criminal lawyers Hyderabad, IP lawyers Hyderabad, family lawyers Hyderabad, legal services Telangana, best lawyers Hyderabad, senior advocate Hyderabad, Chetluru Srinivas advocate, Hyderabad law firm, legal counsel Hyderabad',
   authors: [{ name: 'Chetluru Srinivas & Associates' }],
   creator: 'Chetluru Srinivas & Associates',
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   category: 'Legal Services',
   classification: 'Law Firm',
   openGraph: {
-    title: 'Chetluru Srinivas & Associates - Top Lawyers in Hyderabad | 35+ Years Experience',
-    description: 'Leading law firm in Hyderabad with 35+ years of experience. Expert advocates for corporate law, civil litigation, criminal cases, IP law, and family disputes. Trusted legal counsel in Telangana.',
+    title: 'Chetluru Srinivas & Associates - Top Lawyers in Hyderabad | 34+ Years Experience',
+    description: 'Leading law firm in Hyderabad with 34+ years of experience. Expert advocates for corporate law, civil litigation, criminal cases, IP law, and family disputes. Trusted legal counsel in Telangana.',
     url: 'https://chetluru-srinivas-advocate.github.io',
     siteName: 'Chetluru Srinivas & Associates',
     locale: 'en_US',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Chetluru Srinivas & Associates - Top Lawyers in Hyderabad',
-    description: 'Leading law firm in Hyderabad with 35+ years of experience. Expert legal counsel for all practice areas.',
+    description: 'Leading law firm in Hyderabad with 34+ years of experience. Expert legal counsel for all practice areas.',
     images: ['https://chetluru-srinivas-advocate.github.io/images/chetluru_srinivas_optimized.jpg'],
   },
   robots: {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     'DC.title': 'Chetluru Srinivas & Associates - Law Firm Hyderabad',
     'DC.creator': 'Chetluru Srinivas',
     'DC.subject': 'Legal Services, Law Firm, Advocates, Lawyers',
-    'DC.description': 'Leading law firm in Hyderabad with 35+ years of experience',
+    'DC.description': 'Leading law firm in Hyderabad with 34+ years of experience',
     'DC.publisher': 'Chetluru Srinivas & Associates',
     'DC.contributor': 'Chetluru Srinivas',
     'DC.date': '2025',
@@ -88,7 +88,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LegalService",
               "name": "Chetluru Srinivas & Associates",
-              "description": "Leading law firm in Hyderabad with 35+ years of experience in corporate law, civil litigation, criminal cases, and intellectual property law.",
+              "description": "Leading law firm in Hyderabad with 34+ years of experience in corporate law, civil litigation, criminal cases, and intellectual property law.",
               "url": "https://chetluru-srinivas-advocate.github.io",
               "logo": "https://chetluru-srinivas-advocate.github.io/images/chetluru_srinivas_optimized.jpg",
               "image": "https://chetluru-srinivas-advocate.github.io/images/chetluru_srinivas_optimized.jpg",
@@ -182,14 +182,14 @@ export default function RootLayout({
                 "@type": "Person",
                 "name": "Chetluru Srinivas",
                 "jobTitle": "Founder & Senior Advocate",
-                "description": "Founder with 35+ years of legal experience"
+                "description": "Founder with 34+ years of legal experience"
               },
               "employee": [
                 {
                   "@type": "Person",
                   "name": "Chetluru Srinivas",
                   "jobTitle": "Founder & Senior Advocate",
-                  "description": "35+ years experience in corporate law and civil litigation"
+                  "description": "34+ years experience in corporate law and civil litigation"
                 },
                 {
                   "@type": "Person",
@@ -251,7 +251,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 "name": "Chetluru Srinivas & Associates"
               },
-              "description": "Founder and senior advocate with 35+ years of legal experience in corporate law and civil litigation",
+              "description": "Founder and senior advocate with 34+ years of legal experience in corporate law and civil litigation",
               "url": "https://chetluru-srinivas-advocate.github.io/team/chetluru-srinivas/",
               "image": "https://chetluru-srinivas-advocate.github.io/images/chetluru_srinivas_optimized.jpg",
               "telephone": "+919440222300",
@@ -293,7 +293,7 @@ export default function RootLayout({
               "name": "Chetluru Srinivas & Associates",
               "url": "https://chetluru-srinivas-advocate.github.io",
               "logo": "https://chetluru-srinivas-advocate.github.io/images/chetluru_srinivas_optimized.jpg",
-              "description": "Leading law firm in Hyderabad with 35+ years of experience in corporate law, civil litigation, criminal cases, and intellectual property law.",
+              "description": "Leading law firm in Hyderabad with 34+ years of experience in corporate law, civil litigation, criminal cases, and intellectual property law.",
               "foundingDate": "1991",
               "address": {
                 "@type": "PostalAddress",
